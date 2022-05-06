@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Container from "../components/Container";
 
 const Home: NextPage = () => {
   return (
@@ -13,9 +14,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Welcome to FADA!</h1>
-      </main>
+      <Container>
+        <head>
+          <h1>FADA</h1>
+        </head>
+      </Container>
     </div>
   );
 };
