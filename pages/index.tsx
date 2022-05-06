@@ -1,7 +1,9 @@
 import { css } from "@emotion/react";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import Container from "../components/Container";
+import fadaImage from "../public/fada.png";
 
 const Home: NextPage = () => {
   return (
@@ -31,6 +33,9 @@ const Home: NextPage = () => {
           </h1>
           <span>CHÀTEAUVERT. VAR.</span>
         </header>
+        <div>
+          <Image src={fadaImage}></Image>
+        </div>
       </Container>
     </div>
   );
