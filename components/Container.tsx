@@ -6,7 +6,7 @@ interface Props {
 const Container: React.FC<Props> = ({ children }) => (
   <div
     css={css`
-      padding: 0 1rem;
+      padding: 1rem;
       margin: 0 auto;
       max-width: 960px;
     `}

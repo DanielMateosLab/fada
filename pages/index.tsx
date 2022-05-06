@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Container from "../components/Container";
@@ -16,7 +17,19 @@ const Home: NextPage = () => {
 
       <Container>
         <header>
-          <h1>FADA</h1>
+          <span>
+            FILM <br /> AUTOUR <br /> DE L'ART
+          </span>
+          <h1
+            css={css`
+              font-size: 4rem;
+              margin: 0;
+              font-weight: 900;
+            `}
+          >
+            FADA
+          </h1>
+          <span>CHÀTEAUVERT. VAR.</span>
         </header>
       </Container>
     </div>
