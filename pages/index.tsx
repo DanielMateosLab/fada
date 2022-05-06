@@ -15,9 +15,9 @@ const Home: NextPage = () => {
       </Head>
 
       <Container>
-        <head>
+        <header>
           <h1>FADA</h1>
-        </head>
+        </header>
       </Container>
     </div>
   );
