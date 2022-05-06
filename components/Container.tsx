@@ -1,13 +1,15 @@
+import { css } from "@emotion/react";
+
 interface Props {
   children: React.ReactNode;
 }
 const Container: React.FC<Props> = ({ children }) => (
   <div
-    css={{
-      padding: "1rem",
-      margin: "0 auto",
-      maxWidth: "960px",
-    }}
+    css={css`
+      padding: 0 1rem;
+      margin: 0 auto;
+      max-width: 960px;
+    `}
   >
     {children}
   </div>
