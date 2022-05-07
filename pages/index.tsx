@@ -17,28 +17,47 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Container>
-        <header>
-          <span>
-            FILM <br /> AUTOUR <br /> DE L'ART
-          </span>
-          <h1
-            css={css`
-              font-size: 4rem;
-              margin: 0;
-              font-weight: 900;
-            `}
-          >
-            FADA
-          </h1>
-          <span>CHÀTEAUVERT. VAR.</span>
-        </header>
+      <header
+        css={css`
+          color: white;
+          border-bottom: 1px solid black;
+          background-color: #963c0d;
+        `}
+      >
         <div>
-          <Image src={fadaImage}></Image>
+          <Title />
+
+          <div>
+            <Image src={fadaImage} layout="responsive" />
+          </div>
         </div>
-      </Container>
+      </header>
     </div>
   );
 };
 
 export default Home;
+
+const Title = () => (
+  <div
+    css={css`
+      padding: 1rem;
+    `}
+  >
+    <span>
+      FILM <br /> AUTOUR <br /> DE L'ART
+    </span>
+
+    <h1
+      css={css`
+        font-size: 4rem;
+        margin: 0;
+        font-weight: 900;
+      `}
+    >
+      FADA
+    </h1>
+
+    <span>CHÀTEAUVERT. VAR.</span>
+  </div>
+);
