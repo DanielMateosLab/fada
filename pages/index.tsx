@@ -7,8 +7,28 @@ import fadaImage from "../public/fada.png";
 
 const Home: NextPage = () => {
   const theme = useTheme();
+
+  const column = css`
+    ${theme.mq.sm} {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+  `;
+
   return (
-    <div>
+    <div
+      css={css`
+        display: block;
+        ${theme.mq.sm} {
+          display: grid;
+          grid-template-columns: min(50vw, 490px) 1fr;
+          grid-template-rows: 100vh;
+        }
+      `}
+    >
       <Head>
         <title>FADA - Film Autour De L'art</title>
         <meta
@@ -23,18 +43,29 @@ const Home: NextPage = () => {
           color: white;
           border-bottom: 1px solid black;
           background-color: ${theme.color.primary};
+          ${column}
+          ${theme.mq.sm} {
+            padding-top: 2rem;
+            overflow-y: hidden;
+          }
         `}
       >
-        <div>
-          <Title />
+        <Title />
 
-          <div>
-            <Image src={fadaImage} layout="responsive" />
-          </div>
+        <div
+          css={css`
+            width: 100%;
+          `}
+        >
+          <Image src={fadaImage} layout="responsive" />
         </div>
       </header>
 
-      <main>
+      <main
+        css={css`
+          ${column}
+        `}
+      >
         <Container>
           <blockquote
             css={css`
