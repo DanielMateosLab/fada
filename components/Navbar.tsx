@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav
       css={css`
-        background: #ff1c1c;
+        background: #b2441e;
         padding: 1rem;
         color: #fff;
         display: flex;
