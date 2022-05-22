@@ -86,7 +86,7 @@ const Home: NextPage = () => {
         cinéma, de la vidéo et de la télévision.
           </blockquote>
           <figcaption>
-            — Béatrice Pellegrino, co-foundatrice du festival, en 2014.
+            — Béatrice Pellegrino, co-fondatrice du festival, en 2014.
           </figcaption>
         </Container>
       </main>
