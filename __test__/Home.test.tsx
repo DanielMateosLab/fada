@@ -9,4 +9,13 @@ describe("Home", () => {
 
     expect(poster).toBeInTheDocument();
   });
+  it("should render Béatrice's introduction", () => {
+    render(<Home />);
+
+    const introduction = screen.getByText(
+      /Le film sur l'art élargit ses perspectives, raconte les artistes, leurs démarches, leurs oeuvres./
+    );
+
+    expect(introduction).toBeInTheDocument();
+  });
 });
