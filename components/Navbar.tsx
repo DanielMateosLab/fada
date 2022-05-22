@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import AppLink from "./AppLink";
+import Container from "./Container";
 
 const Navbar = () => {
   return (
@@ -8,14 +9,18 @@ const Navbar = () => {
         background: #b2441e;
         padding: 1rem;
         color: #fff;
-        display: flex;
-        justify-content: center;
-        column-gap: 2rem;
       `}
     >
-      <AppLink href="/">FADA</AppLink>
-      <AppLink href="/program">Programme</AppLink>
-      <AppLink href="/access-and-contact">Accès et Contact</AppLink>
+      <Container
+        css={css`
+          display: flex;
+          column-gap: 2rem;
+        `}
+      >
+        <AppLink href="/">FADA</AppLink>
+        <AppLink href="/program">Programme</AppLink>
+        <AppLink href="/access-and-contact">Accès et Contact</AppLink>
+      </Container>
     </nav>
   );
 };
