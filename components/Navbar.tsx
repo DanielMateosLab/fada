@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav
       css={css`
         background: #b2441e;
-        padding: 1rem;
+        padding: 1rem 0;
         color: #fff;
       `}
     >
