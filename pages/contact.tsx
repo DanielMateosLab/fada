@@ -1,17 +1,29 @@
-import { css } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 import ContactElement from "components/ContactElement";
 import Container from "components/Container";
 import type { NextPage } from "next";
 import { contactInfo } from "utils/data";
 
 const Contact: NextPage = () => {
+  const theme = useTheme();
+
   return (
-    <Container>
+    <Container
+      css={css`
+        margin-bottom: 2rem;
+      `}
+    >
       <h1>Contact</h1>
       <div
         css={css`
-          display: grid;
-          grid-template-columns: 2fr 3fr;
+          display: flex;
+          flex-direction: column-reverse;
+          gap: 0.5rem;
+          ${theme.mq.md} {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            column-gap: 2rem;
+          }
         `}
       >
         <iframe
@@ -19,13 +31,18 @@ const Contact: NextPage = () => {
           css={css`
             width: 100%;
             height: 100%;
+            min-height: 250px;
             border: 0;
           `}
           allowFullScreen={false}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
-        <ul>
+        <ul
+          css={css`
+            padding: 0;
+          `}
+        >
           {contactInfo.map((contact) => (
             <ContactElement contact={contact} />
           ))}

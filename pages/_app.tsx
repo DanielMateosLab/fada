@@ -13,6 +13,8 @@ function MyApp({ Component, pageProps }: AppProps) {
             color: theme.color.primary,
           },
           ul: {
+            margin: 0,
+            padding: 0,
             listStyle: "none",
           },
         }}
