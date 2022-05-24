@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import Container from "components/Container";
 import type { NextPage } from "next";
+import { programData } from "utils/data";
 
 const Program: NextPage = () => {
   return (
@@ -10,8 +11,14 @@ const Program: NextPage = () => {
       `}
     >
       <h1>
-        Programme 5<sup>e</sup> Édition
+        Programme 6<sup>e</sup> Édition
       </h1>
+
+      {programData.map(({ date }) => (
+        <article key={date}>
+          <h2>{date}</h2>
+        </article>
+      ))}
     </Container>
   );
 };

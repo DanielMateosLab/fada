@@ -1,5 +1,6 @@
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import Program from "pages/program";
+import { programData } from "utils/data";
 import { render } from "./test-utils";
 
 describe("Program", () => {
@@ -10,4 +11,17 @@ describe("Program", () => {
 
     expect(title).toBeInTheDocument();
   });
+  describe.each(programData)(
+    "should render the program day '$date'",
+    ({ date, events }) => {
+      it(`should render the day title "${date}"`, () => {
+        render(<Program />);
+        const dayTitle = screen.getByRole("heading", {
+          name: new RegExp(date, "i"),
+        });
+
+        expect(dayTitle).toBeInTheDocument();
+      });
+    }
+  );
 });
