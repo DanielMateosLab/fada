@@ -7,8 +7,12 @@ import { programData } from "utils/data";
 const Program: NextPage = () => {
   return (
     <Container marginBottom>
+      <title>
+        Programme 6<sup>eme</sup> Édition FADA | Juillet 2022
+      </title>
+
       <h1>
-        Programme 6<sup>e</sup> Édition
+        Programme 6<sup>eme</sup> Édition
       </h1>
 
       {programData.map(({ date, events }, dayIndex) => (

@@ -9,6 +9,8 @@ const Contact: NextPage = () => {
 
   return (
     <Container marginBottom>
+      <title>Accés et Contact - FADA | Outrevert. Châteauvert, Var.</title>
+
       <h1>Contact</h1>
       <div
         css={css`

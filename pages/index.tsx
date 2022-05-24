@@ -13,6 +13,10 @@ const Home: NextPage = () => {
         font-size: 20px;
       `}
     >
+      <title>
+        FADA - Film Autour de L&apos;Art | Outrevert. Châteauvert, Var.
+      </title>
+
       <h1>Film Autour de L&apos;Art</h1>
       <p>
         Outrevert (Les amis du Centre d&apos;Art) et la commune de Châteauvert
