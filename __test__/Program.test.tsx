@@ -22,6 +22,28 @@ describe("Program", () => {
 
         expect(dayTitle).toBeInTheDocument();
       });
+
+      describe.each(events)("should render the day events", (event) => {
+        if (event.kind == "show") {
+          it(`should render the show '${event.title}'`, () => {
+            render(<Program />);
+
+            const show = screen.getByText(
+              new RegExp(`${event.title}.*${event.duration} min`)
+            );
+
+            expect(show).toBeInTheDocument();
+          });
+        }
+      });
+
+      it("should render the breaks", () => {
+        render(<Program />);
+
+        const breaks = screen.getAllByText(/Dîner/i);
+
+        expect(breaks).toHaveLength(3);
+      });
     }
   );
 });
