@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import AppLink from "./AppLink";
+import NavLink from "./NavLink";
 import Container from "./Container";
 
 const Navbar = () => {
@@ -17,9 +17,9 @@ const Navbar = () => {
           column-gap: 2rem;
         `}
       >
-        <AppLink href="/">FADA</AppLink>
-        <AppLink href="/program">Programme</AppLink>
-        <AppLink href="/contact">Contact</AppLink>
+        <NavLink href="/">FADA</NavLink>
+        <NavLink href="/program">Programme</NavLink>
+        <NavLink href="/contact">Contact</NavLink>
       </Container>
     </nav>
   );

@@ -3,7 +3,7 @@ import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
-const AppLink = ({
+const NavLink = ({
   children,
   ...props
 }: React.PropsWithChildren<LinkProps>) => {
@@ -29,4 +29,4 @@ const AppLink = ({
   );
 };
 
-export default AppLink;
+export default NavLink;
