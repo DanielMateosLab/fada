@@ -133,12 +133,12 @@ export const contactInfo: Contact[] = [
     email: "liragu.liragu@gmail.com",
   },
   {
-    name: "Micheline Simon / secrétaire",
+    name: "Micheline Simon / Secrétaire",
     phone: "06 32 08 77 40",
     email: "michelinesimon3@gmail.com",
   },
   {
-    name: "Claude Rauber / trésorier",
+    name: "Claude Rauber / Trésorier",
     phone: "06 07 64 23 11",
     email: "claude.rauber@free.fr",
   },
