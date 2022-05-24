@@ -1,4 +1,4 @@
-import { Day } from "./types";
+import { Contact, Day } from "./types";
 
 export const programData: Day[] = [
   {
@@ -118,5 +118,28 @@ export const programData: Day[] = [
         metadata: "de Ayat Najafi, 2014, 91 min.",
       },
     ],
+  },
+];
+
+export const contactInfo: Contact[] = [
+  {
+    name: "Outrevert, les amis du Centre d'Art de Châteauvert",
+    address: "Chemin du Petit Saint Estève 83670 Châteauvert",
+    email: "contactacac@gmail.com",
+  },
+  {
+    name: "Li Ragu / Présidente",
+    phone: "06 10 78 93 17",
+    email: "liragu.liragu@gmail.com",
+  },
+  {
+    name: "Micheline Simon / secrétaire",
+    phone: "06 32 08 77 40",
+    email: "michelinesimon3@gmail.com",
+  },
+  {
+    name: "Claude Rauber / trésorier",
+    phone: "06 07 64 23 11",
+    email: "claude.rauber@free.fr",
   },
 ];
