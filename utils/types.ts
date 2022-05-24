@@ -6,7 +6,7 @@ export interface Show extends DayEvent {
   title: string;
   author: string;
   // Year of release
-  year: number;
+  year?: number;
   // Duration in minutes
   duration: number;
   // Additional information
