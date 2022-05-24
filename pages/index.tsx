@@ -1,12 +1,18 @@
-import { css } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 import Container from "components/Container";
 import type { NextPage } from "next";
 import Image from "next/image";
 import poster from "public/fada_2021.jpg";
 
 const Home: NextPage = () => {
+  const theme = useTheme();
   return (
-    <Container marginBottom>
+    <Container
+      marginBottom
+      css={css`
+        font-size: 20px;
+      `}
+    >
       <h1>Film Autour de L&apos;Art</h1>
       <p>
         Outrevert (Les amis du Centre d&apos;Art) et la commune de Châteauvert
@@ -19,9 +25,14 @@ const Home: NextPage = () => {
 
       <div
         css={css`
-          display: grid;
-          grid-template-columns: calc(70vh * 2 / 3) 1fr;
-          gap: 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          ${theme.mq.md} {
+            display: grid;
+            grid-template-columns: calc(70vh * 2 / 3) 1fr;
+            gap: 1rem;
+          }
         `}
       >
         <div>
@@ -33,9 +44,10 @@ const Home: NextPage = () => {
             css={css`
               margin: 0;
               margin-bottom: 0.5rem;
+              font-style: italic;
             `}
           >
-            "Le film sur l&apos;art élargit ses perspectives, raconte les
+            Le film sur l&apos;art élargit ses perspectives, raconte les
             artistes, leurs démarches, leurs oeuvres. <br />
             Avec une programmation abordant musique, arts plastiques, danse,
             littérature, poésie, historie de l&apos;art et photographie, sous
@@ -43,7 +55,7 @@ const Home: NextPage = () => {
             d&apos;accroître la connaissance et l&apos;appréciation de
             l&apos;art, mais aussi de faire reconnaître le travail des artistes,
             ainsi que l&apos;apport des professionnel/le/s œuvrant dans les
-            domaines du cinéma, de la vidéo et de la télévision."
+            domaines du cinéma, de la vidéo et de la télévision.
           </blockquote>
 
           <figcaption>
