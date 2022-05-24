@@ -19,7 +19,7 @@ const Navbar = () => {
       >
         <AppLink href="/">FADA</AppLink>
         <AppLink href="/program">Programme</AppLink>
-        <AppLink href="/access-and-contact">Accès et Contact</AppLink>
+        <AppLink href="/contact">Contact</AppLink>
       </Container>
     </nav>
   );
