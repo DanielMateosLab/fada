@@ -24,17 +24,18 @@ describe("Program", () => {
       });
 
       describe.each(events)("should render the day events", (event) => {
-        if (event.kind == "show") {
-          it(`should render the show '${event.title}'`, () => {
-            render(<Program />);
+        it(`should render the event '${event.title}'`, () => {
+          render(<Program />);
 
-            const show = screen.getByText(
-              new RegExp(`${event.title}.*${event.duration} min`)
-            );
+          const shows = screen.getAllByText(
+            (content) =>
+              content.includes(event.title) &&
+              (event.metadata ? content.includes(event.metadata) : true) &&
+              (event.time ? content.includes(event.time) : true)
+          );
 
-            expect(show).toBeInTheDocument();
-          });
-        }
+          expect(shows[0]).toBeInTheDocument();
+        });
       });
 
       it("should render the breaks", () => {

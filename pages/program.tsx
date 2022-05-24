@@ -14,27 +14,15 @@ const Program: NextPage = () => {
         Programme 6<sup>e</sup> Édition
       </h1>
 
-      {programData.map(({ date, events }) => (
+      {programData.map(({ date, events }, dayIndex) => (
         <article key={date}>
           <h2>{date}</h2>
           <ul>
-            {events.map((event) =>
-              event.kind === "show" ? (
-                <li key={event.title}>
-                  <span>{event.time}</span>{" "}
-                  <span>
-                    {event.title} de {event.author},
-                    {event.year ? event.year + ", " : " "}
-                    {event.duration} min. {event.notes && event.notes + "."}
-                  </span>
-                </li>
-              ) : (
-                <li key={event.name}>
-                  <span>{event.time}</span>
-                  <span>{event.name}</span>
-                </li>
-              )
-            )}
+            {events.map(({ time, title, metadata, notes }) => (
+              <li key={`d${dayIndex}` + title}>
+                {time} {title} {metadata} {notes}
+              </li>
+            ))}
           </ul>
         </article>
       ))}
