@@ -18,11 +18,7 @@ const Program: NextPage = () => {
       {programData.map(({ date, events }, dayIndex) => (
         <article key={date}>
           <h2>{date}</h2>
-          <ul
-            css={css`
-              list-style: none;
-            `}
-          >
+          <ul>
             {events.map((event) => (
               <EventElement event={event} key={`d${dayIndex}` + event.title} />
             ))}

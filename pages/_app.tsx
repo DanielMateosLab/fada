@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { css, Global, ThemeProvider } from "@emotion/react";
+import { Global, ThemeProvider } from "@emotion/react";
 import { theme } from "../styles/theme";
 import Navbar from "components/Navbar";
 
@@ -11,6 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         styles={{
           h1: {
             color: theme.color.primary,
+          },
+          ul: {
+            listStyle: "none",
           },
         }}
       />
