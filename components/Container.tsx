@@ -3,6 +3,7 @@ import { css, Interpolation, Theme, useTheme } from "@emotion/react";
 interface Props {
   children: React.ReactNode;
   css?: Interpolation<Theme>;
+  marginBottom?: boolean;
 }
 const Container: React.FC<Props> = ({ children, ...props }) => {
   const theme = useTheme();
@@ -12,6 +13,7 @@ const Container: React.FC<Props> = ({ children, ...props }) => {
       css={css`
         padding: 0 1rem;
         margin: 0 auto;
+        margin-bottom: ${props.marginBottom ? "2rem" : 0};
         ${theme.mq.sm} {
           width: calc(100vw * 5 / 6);
         }

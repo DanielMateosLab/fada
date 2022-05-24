@@ -8,11 +8,7 @@ const Contact: NextPage = () => {
   const theme = useTheme();
 
   return (
-    <Container
-      css={css`
-        margin-bottom: 2rem;
-      `}
-    >
+    <Container marginBottom>
       <h1>Contact</h1>
       <div
         css={css`

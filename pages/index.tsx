@@ -6,11 +6,7 @@ import poster from "public/fada_2021.jpg";
 
 const Home: NextPage = () => {
   return (
-    <Container
-      css={css`
-        margin-bottom: 2rem;
-      `}
-    >
+    <Container marginBottom>
       <h1>Film Autour de L&apos;Art</h1>
       <p>
         Outrevert (Les amis du Centre d&apos;Art) et la commune de Châteauvert

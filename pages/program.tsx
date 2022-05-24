@@ -6,11 +6,7 @@ import { programData } from "utils/data";
 
 const Program: NextPage = () => {
   return (
-    <Container
-      css={css`
-        margin-bottom: 2rem;
-      `}
-    >
+    <Container marginBottom>
       <h1>
         Programme 6<sup>e</sup> Édition
       </h1>
