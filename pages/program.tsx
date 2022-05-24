@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import Container from "components/Container";
+import EventElement from "components/EventElement";
 import type { NextPage } from "next";
 import { programData } from "utils/data";
 
@@ -17,11 +18,13 @@ const Program: NextPage = () => {
       {programData.map(({ date, events }, dayIndex) => (
         <article key={date}>
           <h2>{date}</h2>
-          <ul>
-            {events.map(({ time, title, metadata, notes }) => (
-              <li key={`d${dayIndex}` + title}>
-                {time} {title} {metadata} {notes}
-              </li>
+          <ul
+            css={css`
+              list-style: none;
+            `}
+          >
+            {events.map((event) => (
+              <EventElement event={event} key={`d${dayIndex}` + event.title} />
             ))}
           </ul>
         </article>
