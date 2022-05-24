@@ -59,7 +59,7 @@ const Home: NextPage = () => {
           </blockquote>
 
           <figcaption>
-            — Béatrice Pellegrino, co-fondatrice du festival, en 2014.
+            — Béatrice Pellegrino, co-fondatrice du festival.
           </figcaption>
         </div>
       </div>
