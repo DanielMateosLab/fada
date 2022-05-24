@@ -1,8 +1,10 @@
 interface DayEvent {
   time: string;
+  kind: "show" | "break";
 }
 
 export interface Show extends DayEvent {
+  kind: "show";
   title: string;
   author: string;
   // Year of release
@@ -14,6 +16,7 @@ export interface Show extends DayEvent {
 }
 
 export interface Break extends DayEvent {
+  kind: "break";
   name: "Dîner";
 }
 

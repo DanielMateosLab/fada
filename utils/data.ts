@@ -5,6 +5,7 @@ export const programData: Day[] = [
     date: "Vendredi 22 Juillet",
     events: [
       {
+        kind: "show",
         time: "14h30",
         title: "C'EST ASSEZ BIEN D'ÊTRE FOU",
         author: "Antoine Page sur Bilal Berreni",
@@ -13,6 +14,7 @@ export const programData: Day[] = [
         notes: "Projection jeune public - version courte",
       },
       {
+        kind: "show",
         time: "17h",
         title: "ESCHER, L'EXPLORATEUR DE L'INFINI",
         author: "Robin Lutz",
@@ -20,6 +22,7 @@ export const programData: Day[] = [
         duration: 52,
       },
       {
+        kind: "show",
         time: "18h15",
         title: "MONA HATOUM AU CENTRE POMPIDOU",
         author: "Alyssa Verbizh",
@@ -27,6 +30,7 @@ export const programData: Day[] = [
         duration: 20,
       },
       {
+        kind: "show",
         time: "18h45",
         title: "A CORRIGER",
         author: "Raphaël Wirth et Pierre Alexandre Cavé, sur Omar Ba",
@@ -34,6 +38,7 @@ export const programData: Day[] = [
         duration: 52,
       },
       {
+        kind: "show",
         time: "20h",
         title: "GABRIELLE MÜNTER",
         author: "Florence Mauro",
@@ -41,10 +46,12 @@ export const programData: Day[] = [
         duration: 54,
       },
       {
+        kind: "break",
         time: "21h",
         name: "Dîner",
       },
       {
+        kind: "show",
         time: "21h",
         title: "ANNA HALPRIN, LE SOUFFLE DE LA DANSE",
         author: "Ruedi Gerber",
@@ -57,12 +64,14 @@ export const programData: Day[] = [
     date: "Samedi 23 Juillet",
     events: [
       {
+        kind: "show",
         time: "17h",
         title: "SIGNÉ DALI",
         author: "Philippe Elusse",
         duration: 52,
       },
       {
+        kind: "show",
         time: "18h15",
         title: "REBECCA HORN",
         author: "Heinz-Peter Schwerfel",
@@ -70,6 +79,7 @@ export const programData: Day[] = [
         duration: 44,
       },
       {
+        kind: "show",
         time: "19h15",
         title: "TERRES BARCELO",
         author: "Christian Tran",
@@ -77,12 +87,14 @@ export const programData: Day[] = [
         duration: 75,
       },
       {
+        kind: "show",
         time: "20h30",
         title: "LES PLANTES QUI DANSENT",
         author: "Anita Mizrahi",
         duration: 4,
       },
       {
+        kind: "show",
         time: "20h30",
         title: "MAIS AILLEURS C'EST TOUJOURS MIEUX",
         author: "Vivian Ostrovsky",
@@ -90,6 +102,7 @@ export const programData: Day[] = [
         duration: 4,
       },
       {
+        kind: "show",
         time: "20h30",
         title: "SON CHANT",
         author: "Vivian Ostrovsky",
@@ -97,10 +110,12 @@ export const programData: Day[] = [
         duration: 12,
       },
       {
+        kind: "break",
         time: "21h",
         name: "Dîner",
       },
       {
+        kind: "show",
         time: "22h",
         title: "C'EST ASSEZ BIEN D'ÊTRE FOU",
         author: "Antoine Page sur Bilal Berreni",
@@ -113,6 +128,7 @@ export const programData: Day[] = [
     date: "Dimanche 24 Juillet",
     events: [
       {
+        kind: "show",
         time: "16h30",
         title: "SABRINA",
         author: "Léna Durr",
@@ -120,6 +136,7 @@ export const programData: Day[] = [
         duration: 20,
       },
       {
+        kind: "show",
         time: "17h",
         title: "QUE VIVA TINA",
         author: "Silvano Castano",
@@ -127,6 +144,7 @@ export const programData: Day[] = [
         duration: 52,
       },
       {
+        kind: "show",
         time: "18h10",
         title: "BIENVENUE HARKIS D'AUJOURD'HUI",
         author: "présenté par Anita Mizrahi",
@@ -135,6 +153,7 @@ export const programData: Day[] = [
         notes: "Rencontre avec la réalisatrice",
       },
       {
+        kind: "show",
         time: "19h15",
         title: "SHIGERU BAN, ARCHITECTE DE L'URGENCE",
         author: "Michel Quinejure",
@@ -142,10 +161,12 @@ export const programData: Day[] = [
         duration: 52,
       },
       {
+        kind: "break",
         time: "20h30",
         name: "Dîner",
       },
       {
+        kind: "show",
         time: "22h30",
         title: "NO LAND'S SONG",
         author: "Ayat Najafi",
