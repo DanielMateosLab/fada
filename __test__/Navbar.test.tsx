@@ -5,7 +5,7 @@ describe("Navbar", () => {
   describe.each([
     ["Fada", "/"],
     ["Programme", "/program"],
-    ["Accès et Contact", "/access-and-contact"],
+    ["Contact", "/contact"],
   ])("should have a link to %s", (text, href) => {
     it(`should have a link to ${text}`, () => {
       render(<Navbar />);
