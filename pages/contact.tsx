@@ -42,7 +42,7 @@ const Contact: NextPage = () => {
           `}
         >
           {contactInfo.map((contact) => (
-            <ContactElement contact={contact} />
+            <ContactElement contact={contact} key={contact.email} />
           ))}
         </ul>
       </div>
