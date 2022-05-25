@@ -13,7 +13,7 @@ const Container: React.FC<Props> = ({ children, marginBottom, ...props }) => {
       css={css`
         padding: 0 1rem;
         margin: 0 auto;
-        margin-bottom: ${marginBottom ? "2rem" : 0};
+        margin-bottom: ${marginBottom ? "4rem" : 0};
         ${theme.mq.sm} {
           width: calc(100vw * 5 / 6);
         }
