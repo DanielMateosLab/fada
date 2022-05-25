@@ -1,7 +1,7 @@
 # FADA
 
 Welcome to the repository of FADA's festival website. For more information about FADA, visit the
-[website]([https://www.fada-var.fr/).
+[website](https://www.fada-var.fr/).
 
 ## Tech Stack
 
