@@ -1,21 +1,24 @@
-import { css, useTheme } from "@emotion/react";
+import { css, Interpolation, Theme, useTheme } from "@emotion/react";
 
 interface Props {
   children: React.ReactNode;
+  css?: Interpolation<Theme>;
+  marginBottom?: boolean;
 }
-const Container: React.FC<Props> = ({ children }) => {
+const Container: React.FC<Props> = ({ children, marginBottom, ...props }) => {
   const theme = useTheme();
 
   return (
     <div
       css={css`
-        padding: 1rem;
+        padding: 0 1rem;
         margin: 0 auto;
-        max-width: 960px;
+        margin-bottom: ${marginBottom ? "2rem" : 0};
         ${theme.mq.sm} {
-          padding: 0 4rem;
+          width: calc(100vw * 5 / 6);
         }
       `}
+      {...props}
     >
       {children}
     </div>

@@ -1,127 +1,74 @@
 import { css, useTheme } from "@emotion/react";
+import Container from "components/Container";
 import type { NextPage } from "next";
-import Head from "next/head";
 import Image from "next/image";
-import Container from "../components/Container";
-import fadaImage from "../public/fada.png";
+import poster from "public/fada_2021.jpg";
 
 const Home: NextPage = () => {
   const theme = useTheme();
-
-  const column = css`
-    ${theme.mq.sm} {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-    }
-  `;
-
   return (
-    <div
+    <Container
+      marginBottom
       css={css`
-        display: block;
-        ${theme.mq.sm} {
-          display: grid;
-          grid-template-columns: min(50vw, 490px) 1fr;
-          grid-template-rows: 100vh;
-        }
+        font-size: 20px;
       `}
     >
-      <Head>
-        <title>FADA - Film Autour De L&apos;art</title>
-        <meta
-          name="description"
-          content="Festival organisé à Châteauvert dans le Var"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <title>
+        FADA - Film Autour de L&apos;Art | Outrevert. Châteauvert, Var.
+      </title>
 
-      <header
+      <h1>Film Autour de L&apos;Art</h1>
+      <p>
+        Outrevert (Les amis du Centre d&apos;Art) et la commune de Châteauvert
+        vous invitent au cinquième festival FADA: un événement annuel qui a lieu
+        au mois de juillet sur le site exceptionnel du Centre d&apos;Art
+        Contemporain de Châteauvert et son jardin de sculptures et qui permet de
+        découvrir des captations de spectacle, des documentaires, des fictions,
+        sur l&apos;art et les artistes du monde entier.
+      </p>
+
+      <div
         css={css`
-          color: white;
-          border-bottom: 1px solid black;
-          background-color: ${theme.color.primary};
-          ${column}
-          ${theme.mq.sm} {
-            padding-top: 2rem;
-            overflow-y: hidden;
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          ${theme.mq.md} {
+            display: grid;
+            grid-template-columns: calc(70vh * 2 / 3) 1fr;
+            gap: 1rem;
           }
         `}
       >
-        <Title />
-
-        <div
-          css={css`
-            width: 100%;
-          `}
-        >
-          <Image src={fadaImage} layout="responsive" />
+        <div>
+          <Image src={poster} alt="L'affiche du FADA" />
         </div>
-      </header>
 
-      <main
-        css={css`
-          ${column}
-        `}
-      >
-        <Container>
+        <div>
           <blockquote
             css={css`
               margin: 0;
-              padding: 0.5rem;
-              border-radius: 5px;
+              margin-bottom: 0.5rem;
               font-style: italic;
             `}
           >
-            Le film sur l&apos;art élargit ses perspectives, raconte les artistes,
-        leurs démarches, leurs oeuvres. <br />
-        Avec une programmation abordant musique, arts plastiques, danse,
-        littérature, poésie, historie de l&apos;art et photographie, sous
-        différents formats et formes cinématographiques le FADA se propose
-        d&apos;accroître la connaissance et l&apos;appréciation de l&apos;art,
-        mais aussi de faire reconnaître le travail des artistes, ainsi que
-        l&apos;apport des professionnel/le/s œuvrant dans les domaines du
-        cinéma, de la vidéo et de la télévision.
+            Le film sur l&apos;art élargit ses perspectives, raconte les
+            artistes, leurs démarches, leurs oeuvres. <br />
+            Avec une programmation abordant musique, arts plastiques, danse,
+            littérature, poésie, historie de l&apos;art et photographie, sous
+            différents formats et formes cinématographiques le FADA se propose
+            d&apos;accroître la connaissance et l&apos;appréciation de
+            l&apos;art, mais aussi de faire reconnaître le travail des artistes,
+            ainsi que l&apos;apport des professionnel/le/s œuvrant dans les
+            domaines du cinéma, de la vidéo et de la télévision.
           </blockquote>
+
           <figcaption>
-            — Béatrice Pellegrino, co-fondatrice du festival, en 2014.
+            — Béatrice Pellegrino, co-fondatrice du festival.
           </figcaption>
-        </Container>
-      </main>
-    </div>
+        </div>
+      </div>
+    </Container>
   );
 };
 
 export default Home;
-
-const Title = () => (
-  <div
-    css={css`
-      padding: 1rem;
-    `}
-  >
-    <h1
-      css={css`
-        font-size: 4rem;
-        margin: 0;
-        font-weight: 900;
-      `}
-    >
-      FADA
-    </h1>
-
-    <div
-      css={css`
-        display: flex;
-        flex-direction: column;
-      `}
-    >
-      <span>FILM AUTOUR DE L&apos;ART. </span>
-      <span>
-        CHÀTEAUVERT. <b>VAR.</b>
-      </span>
-    </div>
-  </div>
-);
