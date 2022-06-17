@@ -24,6 +24,15 @@ const Home: NextPage = () => {
         l'association des amis du centre d'art de Châteauvert récemment
         rebaptisée Outrevert.
       </p>
+
+      <h2
+        css={css`
+          color: ${theme.color.primary};
+          margin: 0;
+        `}
+      >
+        Argument
+      </h2>
       <p>
         Avec une programmation abordant différents champs de l&apos;art sous des
         formats et des formes cinématographiques variées, la 6ème édition du
