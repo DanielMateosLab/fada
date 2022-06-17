@@ -129,18 +129,14 @@ export const contactInfo: Contact[] = [
     email: "contactacac@gmail.com",
   },
   {
-    name: "Li Ragu / Présidente",
+    name: "Li Ragu",
     phone: "06 10 78 93 17",
     email: "liragu.liragu@gmail.com",
   },
   {
-    name: "Micheline Simon / Secrétaire",
-    phone: "06 32 08 77 40",
-    email: "michelinesimon3@gmail.com",
+    name: "Anita Mizrahi",
+    email: "a.studio@online.nl",
   },
-  {
-    name: "Claude Rauber / Trésorier",
-    phone: "06 07 64 23 11",
-    email: "claude.rauber@free.fr",
-  },
+  { name: "Charlotte Dugauquier", email: "charlottedugauquier@yahoo.fr" },
+  { name: "Michel Loye", email: "loye.michel@free.fr" },
 ];
