@@ -10,4 +10,12 @@ describe("PastEditions", () => {
 
     expect(title).toBeInTheDocument();
   });
+
+  it("should render 5 posters", () => {
+    render(<PastEditions />);
+
+    const posters = screen.getAllByRole("img", { name: /Affiche/ });
+
+    expect(posters).toHaveLength(5);
+  });
 });
