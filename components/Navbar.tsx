@@ -18,7 +18,7 @@ const Navbar = () => {
         `}
       >
         <NavLink href="/">FADA</NavLink>
-        <NavLink href="/program">Programme 2022</NavLink>
+        <NavLink href="/program">Programme 6ème</NavLink>
         <NavLink href="/contact">Contact</NavLink>
       </Container>
     </nav>
