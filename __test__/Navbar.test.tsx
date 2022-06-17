@@ -6,6 +6,7 @@ describe("Navbar", () => {
     ["Fada", "/"],
     ["Programme", "/program"],
     ["Contact", "/contact"],
+    ["Éditions Passées", "/past-editions"],
   ])("should have a link to %s", (text, href) => {
     it(`should have a link to ${text}`, () => {
       render(<Navbar />);

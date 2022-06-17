@@ -1,10 +1,12 @@
-import { css } from "@emotion/react";
+import { useTheme } from "@emotion/react";
 import Container from "components/Container";
 import EventElement from "components/EventElement";
 import type { NextPage } from "next";
 import { programData } from "utils/data";
 
 const Program: NextPage = () => {
+  const theme = useTheme();
+
   return (
     <Container marginBottom>
       <title>
@@ -18,7 +20,7 @@ const Program: NextPage = () => {
       {programData.map(({ date, events }, dayIndex) => (
         <article key={date}>
           <h2>{date}</h2>
-          <ul>
+          <ul css={theme.flatList}>
             {events.map((event) => (
               <EventElement event={event} key={`d${dayIndex}` + event.title} />
             ))}

@@ -9,22 +9,17 @@ describe("Home", () => {
 
     expect(poster).toBeInTheDocument();
   });
-  it("should render outrevert's introduction", () => {
+  it("should render FADA's introduction and argument", () => {
     render(<Home />);
 
     const introduction = screen.getByText(
-      /Outrevert \(Les amis du Centre d'Art\) et la commune de Châteauvert vous invitent au cinquième festival FADA/
+      /Le Fada - festival du film autour de l'art - a été créé en 2015/
+    );
+    const argument = screen.getByText(
+      /Intervention de réalisateurs-trices, ou professionnels-les du cinéma./
     );
 
     expect(introduction).toBeInTheDocument();
-  });
-  it("should render Béatrice's quote", () => {
-    render(<Home />);
-
-    const quote = screen.getByText(
-      /Le film sur l'art élargit ses perspectives, raconte les artistes, leurs démarches, leurs oeuvres./
-    );
-
-    expect(quote).toBeInTheDocument();
+    expect(argument).toBeInTheDocument();
   });
 });

@@ -25,6 +25,7 @@ export const programData: Day[] = [
         title: "A CORRIGER",
         metadata:
           "de Raphaël Wirth et Pierre Alexandre Cavé, sur Omar Ba, 2021, 52 min.",
+        notes: "Présentation des réalisateurs.",
       },
       {
         time: "20h",
@@ -36,7 +37,7 @@ export const programData: Day[] = [
         title: "Dîner",
       },
       {
-        time: "21h",
+        time: "22h",
         title: "ANNA HALPRIN, LE SOUFFLE DE LA DANSE",
         metadata: "de Ruedi Gerber, 2009, 80 min.",
       },
@@ -101,19 +102,19 @@ export const programData: Day[] = [
         time: "18h10",
         title: "BIENVENUE HARKIS D'AUJOURD'HUI",
         metadata: "de et présenté par Anita Mizrahi, 2022, 52 min.",
-        notes: "Rencontre avec la réalisatrice.",
+        notes: "Présentation de la réalisatrice.",
       },
       {
         time: "19h15",
         title: "SHIGERU BAN, ARCHITECTE DE L'URGENCE",
-        metadata: "de Michel Quinejure, 2020, 52 min.",
+        metadata: "de Michel Quinejure, 2000, 52 min.",
       },
       {
         time: "20h30",
         title: "Dîner",
       },
       {
-        time: "22h30",
+        time: "22h",
         title: "NO LAND'S SONG",
         metadata: "de Ayat Najafi, 2014, 91 min.",
       },
@@ -128,18 +129,14 @@ export const contactInfo: Contact[] = [
     email: "contactacac@gmail.com",
   },
   {
-    name: "Li Ragu / Présidente",
+    name: "Li Ragu",
     phone: "06 10 78 93 17",
     email: "liragu.liragu@gmail.com",
   },
   {
-    name: "Micheline Simon / Secrétaire",
-    phone: "06 32 08 77 40",
-    email: "michelinesimon3@gmail.com",
+    name: "Anita Mizrahi",
+    email: "a.studio@online.nl",
   },
-  {
-    name: "Claude Rauber / Trésorier",
-    phone: "06 07 64 23 11",
-    email: "claude.rauber@free.fr",
-  },
+  { name: "Charlotte Dugauquier", email: "charlottedugauquier@yahoo.fr" },
+  { name: "Michel Loye", email: "loye.michel@free.fr" },
 ];

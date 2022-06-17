@@ -18,8 +18,9 @@ const Navbar = () => {
         `}
       >
         <NavLink href="/">FADA</NavLink>
-        <NavLink href="/program">Programme 2022</NavLink>
+        <NavLink href="/program">Programme 6ème</NavLink>
         <NavLink href="/contact">Contact</NavLink>
+        <NavLink href="/past-editions">Éditions Passées</NavLink>
       </Container>
     </nav>
   );
