@@ -1,4 +1,5 @@
 import { css, useTheme } from "@emotion/react";
+import AppLink from "components/AppLink";
 import Container from "components/Container";
 import type { NextPage } from "next";
 import Image from "next/image";
@@ -19,13 +20,42 @@ const Home: NextPage = () => {
 
       <h1>Film Autour de L&apos;Art</h1>
       <p>
-        Outrevert (Les amis du Centre d&apos;Art) et la commune de Châteauvert
-        vous invitent au cinquième festival FADA: un événement annuel qui a lieu
-        au mois de juillet sur le site exceptionnel du Centre d&apos;Art
-        Contemporain de Châteauvert et son jardin de sculptures et qui permet de
-        découvrir des captations de spectacle, des documentaires, des fictions,
-        sur l&apos;art et les artistes du monde entier.
+        Le Fada - festival du film autour de l'art - a été créé en 2015 par
+        l'association des amis du centre d'art de Châteauvert récemment
+        rebaptisée Outrevert.
       </p>
+      <p>
+        Avec une programmation abordant différents champs de l&apos;art sous des
+        formats et des formes cinématographiques variées, la 6ème édition du
+        FADA se propose d&apos;accroître la connaissance et l&apos;appréciation
+        de l&apos;art, également de faire reconnaître le travail des artistes et
+        des professionnels œuvrant dans le domaine du cinéma, de la vidéo et de
+        la télévision.
+      </p>
+      <ul>
+        <li>
+          Projection de films [fictions ou documentaires, courts, moyens et
+          longs métrages]. La programmation du dimanche 24 juillet est en lien
+          avec l&apos;exposition de Léna Durr au Centre d&apos;art, son court
+          métrage sera présenté ce même jour.
+        </li>
+        <li>
+          Afin de participer à l&apos;éducation artistique et culturelle, un
+          film est consacré au jeune public, [public familial et enfants des
+          Centres de loisir], sur une séance en début d&apos;après-midi.
+        </li>
+        <li>
+          Intervention de réalisateurs-trices, ou professionnels-les du cinéma.
+        </li>
+        <li>
+          Restauration le soir, réservation indispensable au{" "}
+          <AppLink href={`tel:06 32 06 41 67`}>06 32 06 41 67</AppLink>.
+        </li>
+        <li>
+          Bar et boutique temporaire d&apos;artisanat d&apos;artistes. Ouverts
+          pendant la durée du Festival, de 14h à 24h.
+        </li>
+      </ul>
 
       <div
         css={css`
@@ -41,30 +71,6 @@ const Home: NextPage = () => {
       >
         <div>
           <Image src={poster} alt="L'affiche du FADA" />
-        </div>
-
-        <div>
-          <blockquote
-            css={css`
-              margin: 0;
-              margin-bottom: 0.5rem;
-              font-style: italic;
-            `}
-          >
-            Le film sur l&apos;art élargit ses perspectives, raconte les
-            artistes, leurs démarches, leurs oeuvres. <br />
-            Avec une programmation abordant musique, arts plastiques, danse,
-            littérature, poésie, historie de l&apos;art et photographie, sous
-            différents formats et formes cinématographiques le FADA se propose
-            d&apos;accroître la connaissance et l&apos;appréciation de
-            l&apos;art, mais aussi de faire reconnaître le travail des artistes,
-            ainsi que l&apos;apport des professionnel/le/s œuvrant dans les
-            domaines du cinéma, de la vidéo et de la télévision.
-          </blockquote>
-
-          <figcaption>
-            — Béatrice Pellegrino, co-fondatrice du festival.
-          </figcaption>
         </div>
       </div>
     </Container>
