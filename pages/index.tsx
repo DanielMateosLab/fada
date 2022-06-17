@@ -2,8 +2,6 @@ import { css, useTheme } from "@emotion/react";
 import AppLink from "components/AppLink";
 import Container from "components/Container";
 import type { NextPage } from "next";
-import Image from "next/image";
-import poster from "public/fada_2021.jpg";
 
 const Home: NextPage = () => {
   const theme = useTheme();
@@ -33,6 +31,7 @@ const Home: NextPage = () => {
       >
         Argument
       </h2>
+
       <p>
         Avec une programmation abordant différents champs de l&apos;art sous des
         formats et des formes cinématographiques variées, la 6ème édition du
@@ -41,6 +40,7 @@ const Home: NextPage = () => {
         des professionnels œuvrant dans le domaine du cinéma, de la vidéo et de
         la télévision.
       </p>
+
       <ul
         css={css`
           li:not(:last-child) {
@@ -71,23 +71,6 @@ const Home: NextPage = () => {
           pendant la durée du Festival, de 14h à 24h.
         </li>
       </ul>
-
-      <div
-        css={css`
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-          ${theme.mq.md} {
-            display: grid;
-            grid-template-columns: calc(70vh * 2 / 3) 1fr;
-            gap: 1rem;
-          }
-        `}
-      >
-        <div>
-          <Image src={poster} alt="L'affiche du FADA" />
-        </div>
-      </div>
     </Container>
   );
 };
