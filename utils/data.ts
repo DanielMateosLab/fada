@@ -25,6 +25,7 @@ export const programData: Day[] = [
         title: "A CORRIGER",
         metadata:
           "de Raphaël Wirth et Pierre Alexandre Cavé, sur Omar Ba, 2021, 52 min.",
+        notes: "Présentation des réalisateurs.",
       },
       {
         time: "20h",
@@ -36,7 +37,7 @@ export const programData: Day[] = [
         title: "Dîner",
       },
       {
-        time: "21h",
+        time: "22h",
         title: "ANNA HALPRIN, LE SOUFFLE DE LA DANSE",
         metadata: "de Ruedi Gerber, 2009, 80 min.",
       },
@@ -101,19 +102,19 @@ export const programData: Day[] = [
         time: "18h10",
         title: "BIENVENUE HARKIS D'AUJOURD'HUI",
         metadata: "de et présenté par Anita Mizrahi, 2022, 52 min.",
-        notes: "Rencontre avec la réalisatrice.",
+        notes: "Présentation de la réalisatrice.",
       },
       {
         time: "19h15",
         title: "SHIGERU BAN, ARCHITECTE DE L'URGENCE",
-        metadata: "de Michel Quinejure, 2020, 52 min.",
+        metadata: "de Michel Quinejure, 2000, 52 min.",
       },
       {
         time: "20h30",
         title: "Dîner",
       },
       {
-        time: "22h30",
+        time: "22h",
         title: "NO LAND'S SONG",
         metadata: "de Ayat Najafi, 2014, 91 min.",
       },
