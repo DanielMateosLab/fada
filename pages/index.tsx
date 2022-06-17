@@ -41,7 +41,13 @@ const Home: NextPage = () => {
         des professionnels œuvrant dans le domaine du cinéma, de la vidéo et de
         la télévision.
       </p>
-      <ul>
+      <ul
+        css={css`
+          li:not(:last-child) {
+            margin-bottom: 0.5rem;
+          }
+        `}
+      >
         <li>
           Projection de films [fictions ou documentaires, courts, moyens et
           longs métrages]. La programmation du dimanche 24 juillet est en lien

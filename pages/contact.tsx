@@ -37,9 +37,12 @@ const Contact: NextPage = () => {
           referrerPolicy="no-referrer-when-downgrade"
         />
         <ul
-          css={css`
-            padding: 0;
-          `}
+          css={[
+            theme.flatList,
+            css`
+              padding: 0;
+            `,
+          ]}
         >
           {contactInfo.map((contact) => (
             <ContactElement contact={contact} key={contact.email} />
