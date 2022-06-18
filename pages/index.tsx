@@ -18,8 +18,8 @@ const Home: NextPage = () => {
 
       <h1>Film Autour de L&apos;Art</h1>
       <p>
-        Le Fada - festival du film autour de l'art - a été créé en 2015 par
-        l'association des amis du centre d'art de Châteauvert récemment
+        Le Fada - festival du film autour de l&apos;art - a été créé en 2015 par
+        l&apos;association des amis du centre d&apos;art de Châteauvert récemment
         rebaptisée Outrevert.
       </p>
 
