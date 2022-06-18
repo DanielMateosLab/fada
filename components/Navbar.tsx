@@ -14,7 +14,13 @@ const Navbar = () => {
       <Container
         css={css`
           display: flex;
+          align-items: center;
           column-gap: 2rem;
+          overflow-x: scroll;
+          scrollbar-width: none;
+          &::-webkit-scrollbar {
+            display: none;
+          }
         `}
       >
         <NavLink href="/">FADA</NavLink>
