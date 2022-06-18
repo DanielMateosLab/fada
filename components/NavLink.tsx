@@ -14,6 +14,7 @@ const NavLink = ({
     <Link {...props} passHref>
       <a
         css={css`
+          white-space: nowrap;
           color: #fff;
           text-decoration: none;
           font-weight: ${isActive ? "bold" : "normal"};
