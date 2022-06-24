@@ -1,30 +1,32 @@
 import { css } from "@emotion/react";
+import { DeviceType } from "models/models.theme";
 import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import useDeviceType from "utils/useDeviceType";
 
-const NavLink = ({
-  children,
-  ...props
-}: React.PropsWithChildren<LinkProps>) => {
-  const router = useRouter();
-  const isActive = router.pathname === props.href;
+interface NavLinkProps {
+  href: string;
+  text: string;
+  isActive: boolean;
+}
 
+const NavLink: React.FC<NavLinkProps> = (props) => {
   return (
-    <Link {...props} passHref>
+    <Link href={props.href} passHref>
       <a
         css={css`
           white-space: nowrap;
           color: #fff;
           text-decoration: none;
-          font-weight: ${isActive ? "bold" : "normal"};
-          cursor: ${isActive ? "default" : "pointer"};
+          font-weight: ${props.isActive ? "bold" : "normal"};
+          cursor: ${props.isActive ? "default" : "pointer"};
           &:hover {
-            text-decoration: ${isActive ? "none" : "underline"};
+            text-decoration: ${props.isActive ? "none" : "underline"};
           }
         `}
       >
-        {isActive ? `[ ${children} ]` : children}
+        {props.text}
       </a>
     </Link>
   );
