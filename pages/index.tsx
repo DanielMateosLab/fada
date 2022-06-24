@@ -5,8 +5,11 @@ import Image from "next/image";
 import { CurrentEditionPoster } from "models/models.image";
 import { DeviceType } from "models/models.device";
 import useDeviceType from "utils/useWindowSize";
+import SectionWithImage from "components/SectionWithImage";
 import fadaDesktop from "public/fada_desktop.jpg";
 import fadaMobile from "public/fada_mobile.jpg";
+import outrevertImage from "public/outrevert.jpg";
+import Container from "components/Container";
 
 const Home: NextPage = () => {
   const poster: CurrentEditionPoster = {
@@ -44,30 +47,41 @@ const Home: NextPage = () => {
           layout="responsive"
         />
       </div>
-      <h1>Film Autour de L&apos;Art</h1>
-      <p>
-        Le Fada - festival du film autour de l&apos;art - a été créé en 2015 par
-        l&apos;association des amis du centre d&apos;art de Châteauvert
-        récemment rebaptisée Outrevert.
-      </p>
 
-      <h2
-        css={css`
-          color: ${theme.color.typography};
-          margin: 0;
-        `}
-      >
-        Argument
-      </h2>
+      <SectionWithImage
+        image={{
+          dto: {
+            src: outrevertImage,
+            alt: "Outrevert Logo",
+          },
+          positon: "left",
+          css: css`
+            padding: 3rem;
+          `,
+        }}
+        textContent={
+          <>
+            Le Fada - festival du film autour de l&apos;art - a été créé en 2015
+            par l&apos;association des amis du centre d&apos;art de Châteauvert
+            récemment rebaptisée Outrevert.
+          </>
+        }
+      />
 
-      <p>
-        Avec une programmation abordant différents champs de l&apos;art sous des
-        formats et des formes cinématographiques variées, la 6ème édition du
-        FADA se propose d&apos;accroître la connaissance et l&apos;appréciation
-        de l&apos;art, également de faire reconnaître le travail des artistes et
-        des professionnels œuvrant dans le domaine du cinéma, de la vidéo et de
-        la télévision.
-      </p>
+      <Container>
+        <p
+          css={css`
+            font-size: 2rem;
+          `}
+        >
+          Avec une programmation abordant différents champs de l&apos;art sous
+          des formats et des formes cinématographiques variées, la 6ème édition
+          du FADA se propose d&apos;accroître la connaissance et
+          l&apos;appréciation de l&apos;art, également de faire reconnaître le
+          travail des artistes et des professionnels œuvrant dans le domaine du
+          cinéma, de la vidéo et de la télévision.
+        </p>
+      </Container>
 
       <ul
         css={css`
