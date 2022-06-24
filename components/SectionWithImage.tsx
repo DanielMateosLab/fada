@@ -1,4 +1,4 @@
-import { css, SerializedStyles } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 import { ImageDTO } from "models/models.image";
 import Image from "next/image";
 
@@ -6,12 +6,13 @@ interface SectionWithImageProps {
   image: {
     dto: ImageDTO;
     positon: "left" | "right";
-    css?: SerializedStyles;
+    objectFit?: "contain" | "cover";
   };
   textContent: string | React.ReactNode;
 }
 
 const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
+  const theme = useTheme();
   const halfWidth = css`
     width: 50%;
   `;
@@ -34,13 +35,15 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
       >
         <div
           css={css`
-            ${props.image.css}
+            position: relative;
+            height: ${theme.sectionHeight};
           `}
         >
           <Image
             src={props.image.dto.src}
             alt={props.image.dto.alt}
-            layout="responsive"
+            layout="fill"
+            objectFit={props.image.objectFit || "cover"}
           />
         </div>
       </div>
@@ -48,7 +51,7 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
         <p
           css={css`
             margin: 0;
-            padding: 2rem;
+            padding: 2rem ${theme.paddingX};
             font-size: 1.5rem;
           `}
         >

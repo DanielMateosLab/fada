@@ -10,6 +10,11 @@ import fadaDesktop from "public/fada_desktop.jpg";
 import fadaMobile from "public/fada_mobile.jpg";
 import outrevertImage from "public/outrevert.jpg";
 import cinemaImage from "public/cinema.jpeg";
+import dancerImage from "public/dancer.jpg";
+import childrenImage from "public/children.jpg";
+import microphoneImage from "public/microphone.jpg";
+import barImage from "public/bar.jpg";
+import restaurantImage from "public/restaurant.jpg";
 import Container from "components/Container";
 
 const Home: NextPage = () => {
@@ -35,7 +40,6 @@ const Home: NextPage = () => {
       <title>
         FADA - Film Autour de L&apos;Art | Outrevert. Châteauvert, Var.
       </title>
-
       <div
         css={css`
           width: 100%;
@@ -46,9 +50,9 @@ const Home: NextPage = () => {
           src={poster[deviceType].src}
           alt={poster[deviceType].alt}
           layout="responsive"
+          priority
         />
       </div>
-
       <SectionWithImage
         image={{
           dto: {
@@ -56,9 +60,7 @@ const Home: NextPage = () => {
             alt: "Outrevert Logo",
           },
           positon: "left",
-          css: css`
-            padding: 3rem;
-          `,
+          objectFit: "contain",
         }}
         textContent={
           <>
@@ -68,20 +70,26 @@ const Home: NextPage = () => {
           </>
         }
       />
-
       <div
         css={css`
           position: relative;
+          height: ${theme.sectionHeight};
         `}
       >
         <div
           css={css`
             width: 100%;
+            height: 100%;
             background: lightgray;
             position: relative;
           `}
         >
-          <Image src={cinemaImage} alt="Cinéma" layout="responsive" />
+          <Image
+            src={cinemaImage}
+            alt="Cinéma"
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
 
         <div
@@ -110,37 +118,84 @@ const Home: NextPage = () => {
           </Container>
         </div>
       </div>
-
-      <ul
-        css={css`
-          li:not(:last-child) {
-            margin-bottom: 0.5rem;
-          }
-        `}
-      >
-        <li>
-          Projection de films [fictions ou documentaires, courts, moyens et
-          longs métrages]. La programmation du dimanche 24 juillet est en lien
-          avec l&apos;exposition de Léna Durr au Centre d&apos;art, son court
-          métrage sera présenté ce même jour.
-        </li>
-        <li>
-          Afin de participer à l&apos;éducation artistique et culturelle, un
-          film est consacré au jeune public, [public familial et enfants des
-          Centres de loisir], sur une séance en début d&apos;après-midi.
-        </li>
-        <li>
-          Intervention de réalisateurs-trices, ou professionnels-les du cinéma.
-        </li>
-        <li>
-          Restauration le soir, réservation indispensable au{" "}
-          <AppLink href={`tel:06 32 06 41 67`}>06 32 06 41 67</AppLink>.
-        </li>
-        <li>
-          Bar et boutique temporaire d&apos;artisanat d&apos;artistes. Ouverts
-          pendant la durée du Festival, de 14h à 24h.
-        </li>
-      </ul>
+      <SectionWithImage
+        image={{
+          dto: {
+            src: dancerImage,
+            alt: "ballerine à l'écran",
+          },
+          positon: "right",
+        }}
+        textContent={
+          <>
+            Projection de films [fictions ou documentaires, courts, moyens et
+            longs métrages]. La programmation du dimanche 24 juillet est en lien
+            avec l&apos;exposition de Léna Durr au Centre d&apos;art, son court
+            métrage sera présenté ce même jour.
+          </>
+        }
+      />
+      <SectionWithImage
+        image={{
+          dto: {
+            src: childrenImage,
+            alt: "des gamins",
+          },
+          positon: "left",
+        }}
+        textContent={
+          <>
+            Afin de participer à l&apos;éducation artistique et culturelle, un
+            film est consacré au jeune public, [public familial et enfants des
+            Centres de loisir], sur une séance en début d&apos;après-midi.
+          </>
+        }
+      />
+      <SectionWithImage
+        image={{
+          dto: {
+            src: microphoneImage,
+            alt: "microphone",
+          },
+          positon: "right",
+        }}
+        textContent={
+          <>
+            Intervention de réalisateurs-trices, ou professionnels-les du
+            cinéma.
+          </>
+        }
+      />
+      <SectionWithImage
+        image={{
+          dto: {
+            src: restaurantImage,
+            alt: "restaurant",
+          },
+          positon: "left",
+        }}
+        textContent={
+          <>
+            Restauration le soir, réservation indispensable au{" "}
+            <AppLink href={`tel:06 32 06 41 67`}>06 32 06 41 67</AppLink>.
+          </>
+        }
+      />
+      <SectionWithImage
+        image={{
+          dto: {
+            src: barImage,
+            alt: "Outrevert le bar",
+          },
+          positon: "right",
+        }}
+        textContent={
+          <>
+            Bar et boutique temporaire d&apos;artisanat d&apos;artistes. Ouverts
+            pendant la durée du Festival, de 14h à 24h.
+          </>
+        }
+      />
     </div>
   );
 };

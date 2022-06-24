@@ -27,6 +27,8 @@ export const theme = {
     margin: 0;
     padding: 0;
   `,
+  sectionHeight: "500px",
+  paddingX: "calc(100vw * 1/12)",
 };
 
 export type AppTheme = typeof theme;
