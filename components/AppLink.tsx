@@ -12,7 +12,7 @@ const AppLink: React.FC<Props> = ({ children, ...props }) => {
     <a
       css={css`
         text-decoration-line: none;
-        color: ${theme.color.primary};
+        color: ${theme.color.typography};
         &:hover,
         &:focus,
         &:active {
