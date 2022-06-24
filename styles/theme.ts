@@ -1,6 +1,12 @@
 import { css } from "@emotion/react";
 
-const breakpoints = [576, 768, 992, 1200];
+export const breakpoints = [576, 768, 992, 1200];
+export enum Breakpoints {
+  xs,
+  sm,
+  md,
+  lg,
+}
 
 const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 

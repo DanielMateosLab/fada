@@ -1,12 +1,14 @@
-import { css } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 import NavLink from "./NavLink";
 import Container from "./Container";
 
 const Navbar = () => {
+  const theme = useTheme();
+
   return (
     <nav
       css={css`
-        background: #b2441e;
+        background: ${theme.color.primary};
         padding: 1rem 0;
         color: #fff;
       `}

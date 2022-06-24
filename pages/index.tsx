@@ -1,13 +1,29 @@
 import { css, useTheme } from "@emotion/react";
 import AppLink from "components/AppLink";
-import Container from "components/Container";
 import type { NextPage } from "next";
+import Image from "next/image";
+import { CurrentEditionPoster } from "models/models.image";
+import { DeviceType } from "models/models.device";
+import useDeviceType from "utils/useWindowSize";
+import fadaDesktop from "public/fada_desktop.jpg";
+import fadaMobile from "public/fada_mobile.jpg";
 
 const Home: NextPage = () => {
+  const poster: CurrentEditionPoster = {
+    [DeviceType.Desktop]: {
+      src: fadaDesktop,
+      alt: "FADA Affiche 2022",
+    },
+    [DeviceType.Mobile]: {
+      src: fadaMobile,
+      alt: "FADA Affiche 2022",
+    },
+  };
   const theme = useTheme();
+  const deviceType = useDeviceType();
+
   return (
-    <Container
-      marginBottom
+    <div
       css={css`
         font-size: 20px;
       `}
@@ -16,11 +32,23 @@ const Home: NextPage = () => {
         FADA - Film Autour de L&apos;Art | Outrevert. Châteauvert, Var.
       </title>
 
+      <div
+        css={css`
+          width: 100%;
+          background: ${theme.color.primary};
+        `}
+      >
+        <Image
+          src={poster[deviceType].src}
+          alt={poster[deviceType].alt}
+          layout="responsive"
+        />
+      </div>
       <h1>Film Autour de L&apos;Art</h1>
       <p>
         Le Fada - festival du film autour de l&apos;art - a été créé en 2015 par
-        l&apos;association des amis du centre d&apos;art de Châteauvert récemment
-        rebaptisée Outrevert.
+        l&apos;association des amis du centre d&apos;art de Châteauvert
+        récemment rebaptisée Outrevert.
       </p>
 
       <h2
@@ -71,7 +99,7 @@ const Home: NextPage = () => {
           pendant la durée du Festival, de 14h à 24h.
         </li>
       </ul>
-    </Container>
+    </div>
   );
 };
 
