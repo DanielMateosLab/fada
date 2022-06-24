@@ -24,7 +24,7 @@ const NavLink = ({
           }
         `}
       >
-        {children}
+        {isActive ? `[ ${children} ]` : children}
       </a>
     </Link>
   );
