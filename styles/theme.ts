@@ -12,8 +12,8 @@ const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
 
 export const theme = {
   color: {
-    primary: "#963c0d",
-    primaryLight: "#f5af8a",
+    typography: "#963c0d",
+    background: "#d14418",
   },
   mq: {
     sm: mq[0],

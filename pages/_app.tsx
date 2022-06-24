@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Global
         styles={{
           h1: {
-            color: theme.color.primary,
+            color: theme.color.typography,
           },
         }}
       />

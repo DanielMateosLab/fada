@@ -35,7 +35,7 @@ const Home: NextPage = () => {
       <div
         css={css`
           width: 100%;
-          background: ${theme.color.primary};
+          background: ${theme.color.background};
         `}
       >
         <Image
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
 
       <h2
         css={css`
-          color: ${theme.color.primary};
+          color: ${theme.color.typography};
           margin: 0;
         `}
       >

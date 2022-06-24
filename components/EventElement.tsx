@@ -24,7 +24,7 @@ const EventElement: React.FC<Props> = ({ event }) => {
       <div>
         <span
           css={css`
-            color: ${theme.color.primary};
+            color: ${theme.color.typography};
             font-weight: bold;
           `}
         >

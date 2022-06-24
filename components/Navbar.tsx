@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav
       css={css`
-        background: ${theme.color.primary};
+        background: ${theme.color.background};
         padding: 1rem 0;
         color: #fff;
       `}
