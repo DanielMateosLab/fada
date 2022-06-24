@@ -2,7 +2,7 @@ import { Breakpoints, DeviceType } from "models/models.theme";
 import { useEffect, useState } from "react";
 
 const useDeviceType = (): DeviceType => {
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(Breakpoints.sm + 1);
 
   useEffect(() => {
     function handleResize() {
