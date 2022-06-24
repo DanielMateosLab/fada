@@ -44,6 +44,7 @@ const Home: NextPage = () => {
         css={css`
           width: 100%;
           background: ${theme.color.background};
+          padding-left: ${theme.paddingX[deviceType]};
         `}
       >
         <Image
@@ -61,6 +62,9 @@ const Home: NextPage = () => {
           },
           positon: "left",
           objectFit: "contain",
+          css: css`
+            margin-left: ${theme.paddingX[deviceType]};
+          `,
         }}
         textContent={
           <>
