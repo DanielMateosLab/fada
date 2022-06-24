@@ -9,6 +9,7 @@ import SectionWithImage from "components/SectionWithImage";
 import fadaDesktop from "public/fada_desktop.jpg";
 import fadaMobile from "public/fada_mobile.jpg";
 import outrevertImage from "public/outrevert.jpg";
+import cinemaImage from "public/cinema.jpeg";
 import Container from "components/Container";
 
 const Home: NextPage = () => {
@@ -68,20 +69,47 @@ const Home: NextPage = () => {
         }
       />
 
-      <Container>
-        <p
+      <div
+        css={css`
+          position: relative;
+        `}
+      >
+        <div
           css={css`
-            font-size: 2rem;
+            width: 100%;
+            background: lightgray;
+            position: relative;
           `}
         >
-          Avec une programmation abordant différents champs de l&apos;art sous
-          des formats et des formes cinématographiques variées, la 6ème édition
-          du FADA se propose d&apos;accroître la connaissance et
-          l&apos;appréciation de l&apos;art, également de faire reconnaître le
-          travail des artistes et des professionnels œuvrant dans le domaine du
-          cinéma, de la vidéo et de la télévision.
-        </p>
-      </Container>
+          <Image src={cinemaImage} alt="Cinéma" layout="responsive" />
+        </div>
+
+        <div
+          css={css`
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(6px);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+          `}
+        >
+          <Container>
+            <p>
+              Avec une programmation abordant différents champs de l&apos;art
+              sous des formats et des formes cinématographiques variées, la 6ème
+              édition du FADA se propose d&apos;accroître la connaissance et
+              l&apos;appréciation de l&apos;art, également de faire reconnaître
+              le travail des artistes et des professionnels œuvrant dans le
+              domaine du cinéma, de la vidéo et de la télévision.
+            </p>
+          </Container>
+        </div>
+      </div>
 
       <ul
         css={css`
