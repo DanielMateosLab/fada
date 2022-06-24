@@ -1,4 +1,4 @@
-import { css, useTheme } from "@emotion/react";
+import { css, SerializedStyles, useTheme } from "@emotion/react";
 import { ImageDTO } from "models/models.image";
 import Image from "next/image";
 import useDeviceType from "utils/useDeviceType";
@@ -8,6 +8,7 @@ interface SectionWithImageProps {
     dto: ImageDTO;
     positon: "left" | "right";
     objectFit?: "contain" | "cover";
+    css?: SerializedStyles;
   };
   textContent: string | React.ReactNode;
 }
@@ -39,6 +40,7 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
           css={css`
             position: relative;
             height: ${theme.sectionHeight};
+            ${props.image.css}
           `}
         >
           <Image
