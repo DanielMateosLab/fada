@@ -11,12 +11,16 @@ const Navbar = () => {
         background: ${theme.color.background};
         padding: 1rem 0;
         color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 1;
       `}
     >
       <Container
         css={css`
           display: flex;
           align-items: center;
+          justify-content: space-between;
           column-gap: 2rem;
           overflow-x: scroll;
           scrollbar-width: none;
