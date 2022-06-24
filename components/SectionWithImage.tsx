@@ -45,11 +45,12 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
         <div
           css={css`
             position: relative;
-            ${props.image.css}
+            background: ${theme.color.gray};
             height: 250px;
             ${theme.mq.xs} {
               height: ${theme.sectionHeight};
             }
+            ${props.image.css}
           `}
         >
           <Image

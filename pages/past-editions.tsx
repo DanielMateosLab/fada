@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 import Container from "components/Container";
 import { ImageDTO } from "models/models.image";
 import type { NextPage } from "next";
@@ -10,6 +10,7 @@ import poster4 from "public/pastEditions/4.jpg";
 import poster5 from "public/pastEditions/5.jpg";
 
 const PastEditions: NextPage = () => {
+  const theme = useTheme();
   const pastEditions: ImageDTO[] = [
     {
       src: poster1,
@@ -41,6 +42,7 @@ const PastEditions: NextPage = () => {
           position: relative;
           width: 100%;
           height: 100%;
+          background: ${theme.color.gray};
         `}
       >
         <Image layout="responsive" src={edition.src} alt={edition.alt} />

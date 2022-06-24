@@ -67,6 +67,7 @@ const Home: NextPage = () => {
           objectFit: "contain",
           css: css`
             margin-left: ${theme.paddingX[deviceType]};
+            background: none;
           `,
         }}
         textContent={
