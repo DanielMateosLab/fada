@@ -1,5 +1,6 @@
 import { css, SerializedStyles, useTheme } from "@emotion/react";
 import { ImageDTO } from "models/models.image";
+import { DeviceType } from "models/models.theme";
 import Image from "next/image";
 import useDeviceType from "utils/useDeviceType";
 
@@ -16,12 +17,17 @@ interface SectionWithImageProps {
 const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
   const deviceType = useDeviceType();
   const theme = useTheme();
-  const halfWidth = css`
-    width: 50%;
+  const sectionWidth = css`
+    width: 100%;
+    ${theme.mq.xs} {
+      width: 50%;
+    }
   `;
 
-  const ImagePositionManager = () =>
-    props.image.positon == "left" ? "row" : "row-reverse";
+  const ImagePositionManager = () => {
+    if (deviceType == DeviceType.Mobile) return "column";
+    return props.image.positon == "left" ? "row" : "row-reverse";
+  };
 
   return (
     <section
@@ -33,14 +39,17 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
     >
       <div
         css={css`
-          ${halfWidth};
+          ${sectionWidth};
         `}
       >
         <div
           css={css`
             position: relative;
-            height: ${theme.sectionHeight};
             ${props.image.css}
+            height: 250px;
+            ${theme.mq.xs} {
+              height: ${theme.sectionHeight};
+            }
           `}
         >
           <Image
@@ -51,12 +60,11 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
           />
         </div>
       </div>
-      <div css={halfWidth}>
+      <div css={sectionWidth}>
         <p
           css={css`
             margin: 0;
             padding: 2rem ${theme.paddingX[deviceType]};
-            font-size: 1.5rem;
           `}
         >
           {props.textContent}

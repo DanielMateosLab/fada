@@ -15,7 +15,10 @@ export const theme = {
     background: "#d14418",
   },
   mq: {
+    xs: mq(Breakpoints.xs),
+    sm: mq(Breakpoints.sm),
     md: mq(Breakpoints.md),
+    lg: mq(Breakpoints.lg),
   },
   flatList: css`
     list-style: none;

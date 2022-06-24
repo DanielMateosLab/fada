@@ -16,6 +16,7 @@ import microphoneImage from "public/microphone.jpg";
 import barImage from "public/bar.jpg";
 import restaurantImage from "public/restaurant.jpg";
 import Container from "components/Container";
+import ArrowDown from "components/ArrowDown";
 
 const Home: NextPage = () => {
   const poster: CurrentEditionPoster = {
@@ -34,7 +35,7 @@ const Home: NextPage = () => {
   return (
     <div
       css={css`
-        font-size: 20px;
+        font-size: 1.2rem;
       `}
     >
       <title>
@@ -44,7 +45,9 @@ const Home: NextPage = () => {
         css={css`
           width: 100%;
           background: ${theme.color.background};
-          padding-left: ${theme.paddingX[deviceType]};
+          ${theme.mq.xs} {
+            padding-left: ${theme.paddingX[deviceType]};
+          }
         `}
       >
         <Image
@@ -77,7 +80,10 @@ const Home: NextPage = () => {
       <div
         css={css`
           position: relative;
-          height: ${theme.sectionHeight};
+          height: 700px;
+          ${theme.mq.xs} {
+            height: ${theme.sectionHeight};
+          }
         `}
       >
         <div
@@ -103,9 +109,8 @@ const Home: NextPage = () => {
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(6px);
-            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(3px);
             display: flex;
             align-items: center;
           `}
@@ -119,6 +124,17 @@ const Home: NextPage = () => {
               le travail des artistes et des professionnels œuvrant dans le
               domaine du cinéma, de la vidéo et de la télévision.
             </p>
+            <div
+              css={css`
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+              `}
+            >
+              <span>Cette année à la FADA</span>
+              <ArrowDown />
+            </div>
           </Container>
         </div>
       </div>
