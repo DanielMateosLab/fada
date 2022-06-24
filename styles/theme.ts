@@ -1,14 +1,12 @@
 import { css } from "@emotion/react";
+import { Breakpoints, DeviceType } from "models/models.theme";
 
-export const breakpoints = [576, 768, 992, 1200];
-export enum Breakpoints {
-  xs,
-  sm,
-  md,
-  lg,
-}
+const mq = (bp: Breakpoints) => `@media (min-width: ${bp}px)`;
 
-const mq = breakpoints.map((bp) => `@media (min-width: ${bp}px)`);
+const paddingX: { [key in DeviceType]: string } = {
+  [DeviceType.Mobile]: "1rem",
+  [DeviceType.Desktop]: "calc(100vw * 1/12)",
+};
 
 export const theme = {
   color: {
@@ -17,10 +15,7 @@ export const theme = {
     background: "#d14418",
   },
   mq: {
-    sm: mq[0],
-    md: mq[1],
-    lg: mq[2],
-    xl: mq[3],
+    md: mq(Breakpoints.md),
   },
   flatList: css`
     list-style: none;
@@ -28,7 +23,7 @@ export const theme = {
     padding: 0;
   `,
   sectionHeight: "500px",
-  paddingX: "calc(100vw * 1/12)",
+  paddingX,
 };
 
 export type AppTheme = typeof theme;

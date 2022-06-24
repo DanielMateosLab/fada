@@ -1,6 +1,5 @@
-import { DeviceType } from "models/models.device";
+import { Breakpoints, DeviceType } from "models/models.theme";
 import { useEffect, useState } from "react";
-import { Breakpoints, breakpoints } from "styles/theme";
 
 const useDeviceType = (): DeviceType => {
   const [width, setWidth] = useState(0);
@@ -19,9 +18,7 @@ const useDeviceType = (): DeviceType => {
     };
   }, []);
 
-  return width > breakpoints[Breakpoints.xs]
-    ? DeviceType.Desktop
-    : DeviceType.Mobile;
+  return width > Breakpoints.xs ? DeviceType.Desktop : DeviceType.Mobile;
 };
 
 export default useDeviceType;

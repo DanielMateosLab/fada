@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import { DeviceType } from "./models.device";
+import { DeviceType } from "./models.theme";
 
 export interface ImageDTO {
   src: StaticImageData;

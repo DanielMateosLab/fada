@@ -1,6 +1,7 @@
 import { css, useTheme } from "@emotion/react";
 import { ImageDTO } from "models/models.image";
 import Image from "next/image";
+import useDeviceType from "utils/useDeviceType";
 
 interface SectionWithImageProps {
   image: {
@@ -12,6 +13,7 @@ interface SectionWithImageProps {
 }
 
 const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
+  const deviceType = useDeviceType();
   const theme = useTheme();
   const halfWidth = css`
     width: 50%;
@@ -51,7 +53,7 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
         <p
           css={css`
             margin: 0;
-            padding: 2rem ${theme.paddingX};
+            padding: 2rem ${theme.paddingX[deviceType]};
             font-size: 1.5rem;
           `}
         >
