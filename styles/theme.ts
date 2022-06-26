@@ -11,7 +11,7 @@ const paddingX: { [key in DeviceType]: string } = {
 export const theme = {
   color: {
     typography: "#963c0d",
-    gray: "#cfcfcf",
+    gray: "#eeeeee",
     background: "#d14418",
   },
   mq: {
