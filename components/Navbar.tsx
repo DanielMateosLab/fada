@@ -59,10 +59,11 @@ const Navbar = () => {
     menuOpen ? (
       <Container
         css={css`
-          margin-top: 0.5rem;
+          margin-top: 0.75rem;
           display: flex;
           flex-direction: column;
           column-gap: 2rem;
+          row-gap: 0.5rem;
         `}
       >
         {LinksManager()}

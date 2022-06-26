@@ -9,14 +9,13 @@ import SectionWithImage from "components/SectionWithImage";
 import fadaDesktop from "public/fada_desktop.jpg";
 import fadaMobile from "public/fada_mobile.jpg";
 import outrevertImage from "public/outrevert.jpg";
-import cinemaImage from "public/cinema.jpeg";
+import cacImage from "public/cac.jpg";
 import dancerImage from "public/dancer.jpg";
 import childrenImage from "public/children.jpg";
 import microphoneImage from "public/microphone.jpg";
 import barImage from "public/bar.jpg";
 import restaurantImage from "public/restaurant.jpg";
 import Container from "components/Container";
-import ArrowDown from "components/ArrowDown";
 import MainPoster from "components/MainPoster";
 
 const Home: NextPage = () => {
@@ -50,10 +49,13 @@ const Home: NextPage = () => {
             alt: "Outrevert Logo",
           },
           positon: "left",
+          layout: deviceType == DeviceType.Mobile ? "responsive" : "fill",
           objectFit: "contain",
           css: css`
-            margin-left: ${theme.paddingX[deviceType]};
+            margin: 0 ${theme.paddingX[deviceType]};
             background: none;
+            height: ${deviceType == DeviceType.Mobile ? "auto" : "250px"};
+            margin-top: ${deviceType == DeviceType.Mobile ? "2rem" : "0"};
           `,
         }}
         textContent={
@@ -82,8 +84,8 @@ const Home: NextPage = () => {
           `}
         >
           <Image
-            src={cinemaImage}
-            alt="Cinéma"
+            src={cacImage}
+            alt="Centre d'art de Châteauvert"
             layout="fill"
             objectFit="cover"
           />
@@ -96,14 +98,20 @@ const Home: NextPage = () => {
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(3px);
             display: flex;
             align-items: center;
           `}
         >
           <Container>
-            <p>
+            <p
+              css={css`
+                color: white;
+                padding: 2rem;
+                background: rgba(0, 0, 0, 0.66);
+                backdrop-filter: blur(2px);
+                text-shadow: 0px 1px 2px black, 0px -1px 2px black;
+              `}
+            >
               Avec une programmation abordant différents champs de l&apos;art
               sous des formats et des formes cinématographiques variées, la 6ème
               édition du FADA se propose d&apos;accroître la connaissance et
@@ -111,20 +119,18 @@ const Home: NextPage = () => {
               le travail des artistes et des professionnels œuvrant dans le
               domaine du cinéma, de la vidéo et de la télévision.
             </p>
-            <div
-              css={css`
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 8px;
-              `}
-            >
-              <span>Cette année à la FADA</span>
-              <ArrowDown />
-            </div>
           </Container>
         </div>
       </div>
+      <h2
+        css={css`
+          color: ${theme.color.typography};
+          text-align: center;
+        `}
+      >
+        Cette année à la FADA
+      </h2>
+
       <SectionWithImage
         image={{
           dto: {

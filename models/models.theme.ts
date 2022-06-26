@@ -16,6 +16,6 @@ export enum Breakpoints {
 type ResponsiveStyles = Dictionary<DeviceType, SerializedStyles>;
 
 export interface ResponsiveStyler {
-  base: SerializedStyles;
+  base?: SerializedStyles;
   responsive: ResponsiveStyles;
 }

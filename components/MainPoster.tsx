@@ -9,7 +9,7 @@ interface MainPosterProps {
 }
 
 const MainPoster: React.FC<MainPosterProps> = (props) => {
-  const deviceType = useDeviceType(DeviceType.Desktop);
+  const deviceType = useDeviceType(DeviceType.Mobile);
   const theme = useTheme();
 
   return (
@@ -26,6 +26,8 @@ const MainPoster: React.FC<MainPosterProps> = (props) => {
         src={props.poster[deviceType].src}
         alt={props.poster[deviceType].alt}
         layout="responsive"
+        objectFit="cover"
+        placeholder="blur"
         priority
       />
     </div>
