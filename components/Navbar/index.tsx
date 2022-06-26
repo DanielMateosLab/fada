@@ -1,6 +1,6 @@
 import { css, useTheme } from "@emotion/react";
-import NavLink from "./NavLink";
-import Container from "./Container";
+import NavLink from "components/NavLink";
+import Container from "components/Container";
 import { useRouter } from "next/router";
 
 const Navbar = () => {
@@ -12,7 +12,7 @@ const Navbar = () => {
    *    - Menu button and secondary nav hidden
    *    - Secondary nav hidden
    * - mobile:
-   *    - Active link present in main nav, in disabled state.
+   *    - Active link text in main nav.
    *    - Menu button present.
    *    - Secondary nav hidden, shows on menu button click.
    *
@@ -22,6 +22,24 @@ const Navbar = () => {
    */
   const theme = useTheme();
   const router = useRouter();
+  const links = [
+    {
+      href: "/",
+      text: "FADA",
+    },
+    {
+      href: "/program",
+      text: "Programme 6ème",
+    },
+    {
+      href: "/contact",
+      text: "Contact",
+    },
+    {
+      href: "/past-editions",
+      text: "Éditions Passées",
+    },
+  ];
 
   const IsActiveManager = (href: string) => router.pathname == href;
 
@@ -30,7 +48,6 @@ const Navbar = () => {
       css={css`
         background: ${theme.color.background};
         padding: 1rem 0;
-        color: #fff;
         position: sticky;
         top: 0;
         z-index: 1;
