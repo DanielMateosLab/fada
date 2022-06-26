@@ -1,14 +1,22 @@
 import { css, SerializedStyles, useTheme } from "@emotion/react";
+import { Dictionary } from "models/models.gen";
 import { ImageDTO } from "models/models.image";
 import { DeviceType } from "models/models.theme";
 import Image from "next/image";
 import useDeviceType from "utils/useDeviceType";
+
+interface SectionWithImageStylerProperties {
+  container: SerializedStyles;
+  contentParagraph: SerializedStyles;
+}
+type SectionStyler = Dictionary<DeviceType, SectionWithImageStylerProperties>;
 
 interface SectionWithImageProps {
   image: {
     dto: ImageDTO;
     positon: "left" | "right";
     objectFit?: "contain" | "cover";
+    layout?: "fill" | "responsive";
     css?: SerializedStyles;
   };
   textContent: string | React.ReactNode;
@@ -24,6 +32,25 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
     }
   `;
 
+  const sectionStyler: SectionStyler = {
+    [DeviceType.Mobile]: {
+      container: css`
+        margin-bottom: 2rem;
+      `,
+      contentParagraph: css`
+        padding: ${theme.paddingX[deviceType]};
+      `,
+    },
+    [DeviceType.Desktop]: {
+      container: css`
+        margin-bottom: 2rem;
+      `,
+      contentParagraph: css`
+        padding: 2rem ${theme.paddingX[deviceType]};
+      `,
+    },
+  };
+
   const ImagePositionManager = () => {
     if (deviceType == DeviceType.Mobile) return "column";
     return props.image.positon == "left" ? "row" : "row-reverse";
@@ -35,6 +62,7 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
         display: flex;
         flex-direction: ${ImagePositionManager()};
         align-items: center;
+        ${sectionStyler[deviceType].container}
       `}
     >
       <div
@@ -56,7 +84,7 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
           <Image
             src={props.image.dto.src}
             alt={props.image.dto.alt}
-            layout="fill"
+            layout={props.image.layout || "fill"}
             objectFit={props.image.objectFit || "cover"}
           />
         </div>
@@ -65,7 +93,7 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
         <p
           css={css`
             margin: 0;
-            padding: 2rem ${theme.paddingX[deviceType]};
+            ${sectionStyler[deviceType].contentParagraph}
           `}
         >
           {props.textContent}
