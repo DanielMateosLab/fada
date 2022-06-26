@@ -17,6 +17,7 @@ import barImage from "public/bar.jpg";
 import restaurantImage from "public/restaurant.jpg";
 import Container from "components/Container";
 import ArrowDown from "components/ArrowDown";
+import MainPoster from "components/MainPoster";
 
 const Home: NextPage = () => {
   const poster: CurrentEditionPoster = {
@@ -41,22 +42,7 @@ const Home: NextPage = () => {
       <title>
         FADA - Film Autour de L&apos;Art | Outrevert. Châteauvert, Var.
       </title>
-      <div
-        css={css`
-          width: 100%;
-          background: ${theme.color.background};
-          ${theme.mq.xs} {
-            padding-left: ${theme.paddingX[deviceType]};
-          }
-        `}
-      >
-        <Image
-          src={poster[deviceType].src}
-          alt={poster[deviceType].alt}
-          layout="responsive"
-          priority
-        />
-      </div>
+      <MainPoster poster={poster} />
       <SectionWithImage
         image={{
           dto: {
