@@ -1,15 +1,20 @@
 import { css, SerializedStyles, useTheme } from "@emotion/react";
 import { Dictionary } from "models/models.gen";
 import { ImageDTO } from "models/models.image";
-import { DeviceType } from "models/models.theme";
+import { DeviceType, ResponsiveStyler } from "models/models.theme";
 import Image from "next/image";
 import useDeviceType from "utils/useDeviceType";
 
-interface SectionWithImageStylerProperties {
-  container: SerializedStyles;
-  contentParagraph: SerializedStyles;
+enum SectionWithImageStylerProperties {
+  Subsection = "Subsection",
+  Container = "Container",
+  ContentParagraph = "ContentParagraph",
 }
-type SectionStyler = Dictionary<DeviceType, SectionWithImageStylerProperties>;
+
+type SectionStyler = Dictionary<
+  SectionWithImageStylerProperties,
+  ResponsiveStyler
+>;
 
 interface SectionWithImageProps {
   image: {
@@ -25,51 +30,63 @@ interface SectionWithImageProps {
 const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
   const deviceType = useDeviceType();
   const theme = useTheme();
-  const sectionWidth = css`
-    width: 100%;
-    ${theme.mq.xs} {
-      width: 50%;
-    }
-  `;
-
   const sectionStyler: SectionStyler = {
-    [DeviceType.Mobile]: {
-      container: css`
-        margin-bottom: 2rem;
+    Container: {
+      base: css`
+        display: flex;
+        align-items: center;
       `,
-      contentParagraph: css`
-        padding: ${theme.paddingX[deviceType]};
-      `,
+      responsive: {
+        [DeviceType.Mobile]: css`
+          margin-bottom: 2rem;
+          flex-direction: column;
+        `,
+        [DeviceType.Desktop]: css`
+          margin-bottom: 0;
+          flex-direction: ${props.image.positon == "left"
+            ? "row"
+            : "row-reverse"};
+        `,
+      },
     },
-    [DeviceType.Desktop]: {
-      container: css`
-        margin-bottom: 0;
+    ContentParagraph: {
+      base: css`
+        margin: 0;
       `,
-      contentParagraph: css`
-        padding: 2rem ${theme.paddingX[deviceType]};
-      `,
+      responsive: {
+        [DeviceType.Mobile]: css`
+          padding: ${theme.paddingX[deviceType]};
+        `,
+        [DeviceType.Desktop]: css`
+          padding: 2rem ${theme.paddingX[deviceType]};
+        `,
+      },
+    },
+    Subsection: {
+      responsive: {
+        [DeviceType.Mobile]: css`
+          width: 100%;
+        `,
+        [DeviceType.Desktop]: css`
+          width: 50%;
+        `,
+      },
     },
   };
-
-  const ImagePositionManager = () => {
-    if (deviceType == DeviceType.Mobile) return "column";
-    return props.image.positon == "left" ? "row" : "row-reverse";
-  };
+  const Subsection: React.FC<{ children: React.ReactNode }> = (props) => (
+    <div css={sectionStyler.Subsection.responsive[deviceType]}>
+      {props.children}
+    </div>
+  );
 
   return (
     <section
-      css={css`
-        display: flex;
-        flex-direction: ${ImagePositionManager()};
-        align-items: center;
-        ${sectionStyler[deviceType].container}
-      `}
+      css={[
+        sectionStyler.Container.base,
+        sectionStyler.Container.responsive[deviceType],
+      ]}
     >
-      <div
-        css={css`
-          ${sectionWidth};
-        `}
-      >
+      <Subsection>
         <div
           css={css`
             position: relative;
@@ -88,17 +105,18 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
             objectFit={props.image.objectFit || "cover"}
           />
         </div>
-      </div>
-      <div css={sectionWidth}>
+      </Subsection>
+
+      <Subsection>
         <p
-          css={css`
-            margin: 0;
-            ${sectionStyler[deviceType].contentParagraph}
-          `}
+          css={[
+            sectionStyler.ContentParagraph.base,
+            sectionStyler.ContentParagraph.responsive[deviceType],
+          ]}
         >
           {props.textContent}
         </p>
-      </div>
+      </Subsection>
     </section>
   );
 };
