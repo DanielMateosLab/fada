@@ -2,6 +2,8 @@ import { css, useTheme } from "@emotion/react";
 import NavLink from "components/NavLink";
 import Container from "components/Container";
 import { useRouter } from "next/router";
+import MenuButton from "components/MenuButton";
+import { useState } from "react";
 
 const Navbar = () => {
   /**
@@ -40,8 +42,10 @@ const Navbar = () => {
       text: "Éditions Passées",
     },
   ];
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const IsActiveManager = (href: string) => router.pathname == href;
+  const handleMenuOpen = () => setMenuOpen((prev) => !prev);
 
   return (
     <nav
@@ -66,6 +70,7 @@ const Navbar = () => {
           }
         `}
       >
+        <MenuButton handleClick={handleMenuOpen} isActive={menuOpen} />
         <NavLink href="/" text="FADA" isActive={IsActiveManager("/")} />
 
         <NavLink
