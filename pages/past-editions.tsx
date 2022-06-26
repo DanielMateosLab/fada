@@ -45,7 +45,12 @@ const PastEditions: NextPage = () => {
           background: ${theme.color.gray};
         `}
       >
-        <Image layout="responsive" src={edition.src} alt={edition.alt} />
+        <Image
+          layout="responsive"
+          src={edition.src}
+          alt={edition.alt}
+          placeholder="blur"
+        />
       </div>
     ));
 

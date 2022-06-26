@@ -103,6 +103,7 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
             alt={props.image.dto.alt}
             layout={props.image.layout || "fill"}
             objectFit={props.image.objectFit || "cover"}
+            placeholder="blur"
           />
         </div>
       </Subsection>

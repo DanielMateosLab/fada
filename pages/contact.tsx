@@ -31,6 +31,7 @@ const Contact: NextPage = () => {
             height: 100%;
             min-height: 250px;
             border: 0;
+            background: ${theme.color.gray};
           `}
           allowFullScreen={false}
           loading="lazy"
