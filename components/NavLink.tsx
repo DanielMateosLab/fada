@@ -1,9 +1,6 @@
 import { css } from "@emotion/react";
-import { DeviceType } from "models/models.theme";
-import Link, { LinkProps } from "next/link";
-import { useRouter } from "next/router";
+import Link from "next/link";
 import React from "react";
-import useDeviceType from "utils/useDeviceType";
 
 interface NavLinkProps {
   href: string;
@@ -12,24 +9,35 @@ interface NavLinkProps {
 }
 
 const NavLink: React.FC<NavLinkProps> = (props) => {
-  return (
-    <Link href={props.href} passHref>
-      <a
-        css={css`
-          white-space: nowrap;
-          color: #fff;
-          text-decoration: none;
-          font-weight: ${props.isActive ? "bold" : "normal"};
-          cursor: ${props.isActive ? "default" : "pointer"};
-          &:hover {
-            text-decoration: ${props.isActive ? "none" : "underline"};
-          }
-        `}
-      >
-        {props.text}
-      </a>
-    </Link>
-  );
+  const baseStyle = css`
+    white-space: nowrap;
+    color: #fff;
+    user-select: none;
+  `;
+  const linkStyle = css`
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  `;
+  const activeStyle = css`
+    font-weight: bold;
+  `;
+
+  const StyleManager = () => [
+    baseStyle,
+    props.isActive ? activeStyle : linkStyle,
+  ];
+  const TextManager = () => (props.isActive ? `[ ${props.text} ]` : props.text);
+  const Wrapper: React.FC<{ text: string }> = props.isActive
+    ? (wrapperProps) => <span css={StyleManager()}>{wrapperProps.text}</span>
+    : (wrapperProps) => (
+        <Link href={props.href} passHref>
+          <a css={StyleManager()}>{wrapperProps.text}</a>
+        </Link>
+      );
+
+  return <Wrapper text={TextManager()} />;
 };
 
 export default NavLink;

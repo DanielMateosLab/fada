@@ -1,20 +1,29 @@
 import { css, useTheme } from "@emotion/react";
 import NavLink from "./NavLink";
 import Container from "./Container";
-import useDeviceType from "utils/useDeviceType";
 import { useRouter } from "next/router";
-import { DeviceType } from "models/models.theme";
 
 const Navbar = () => {
+  /**
+   * Navbar configurations:
+   * - desktop:
+   *    - All links present in main nav
+   *    - Active link highlighted
+   *    - Menu button and secondary nav hidden
+   *    - Secondary nav hidden
+   * - mobile:
+   *    - Active link present in main nav, in disabled state.
+   *    - Menu button present.
+   *    - Secondary nav hidden, shows on menu button click.
+   *
+   * Components requirements:
+   *    - NavLink: disabled state.
+   *    - Menu button: onClick event.
+   */
   const theme = useTheme();
   const router = useRouter();
-  const deviceType = useDeviceType();
 
   const IsActiveManager = (href: string) => router.pathname == href;
-  const TextManager = (linkInfo: { text: string; href: string }) =>
-    IsActiveManager(linkInfo.href) && deviceType == DeviceType.Desktop
-      ? `[ ${linkInfo.text} ]`
-      : linkInfo.text;
 
   return (
     <nav
@@ -40,33 +49,23 @@ const Navbar = () => {
           }
         `}
       >
-        <NavLink
-          href="/"
-          text={TextManager({ text: "FADA", href: "/" })}
-          isActive={IsActiveManager("/")}
-        />
+        <NavLink href="/" text="FADA" isActive={IsActiveManager("/")} />
 
         <NavLink
           href="/program"
-          text={TextManager({
-            text: "Programme 6ème",
-            href: "/program",
-          })}
+          text="Programme 6ème"
           isActive={IsActiveManager("/program")}
         />
 
         <NavLink
           href="/contact"
-          text={TextManager({ text: "Contact", href: "/contact" })}
+          text="Contact"
           isActive={IsActiveManager("/contact")}
         />
 
         <NavLink
           href="/past-editions"
-          text={TextManager({
-            text: "Éditions Passées",
-            href: "/past-editions",
-          })}
+          text="Éditions Passées"
           isActive={IsActiveManager("/past-editions")}
         />
       </Container>
