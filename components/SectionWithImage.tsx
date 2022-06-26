@@ -43,7 +43,7 @@ const SectionWithImage: React.FC<SectionWithImageProps> = (props) => {
     },
     [DeviceType.Desktop]: {
       container: css`
-        margin-bottom: 2rem;
+        margin-bottom: 0;
       `,
       contentParagraph: css`
         padding: 2rem ${theme.paddingX[deviceType]};
