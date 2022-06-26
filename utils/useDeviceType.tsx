@@ -1,8 +1,14 @@
 import { Breakpoints, DeviceType } from "models/models.theme";
 import { useEffect, useState } from "react";
 
-const useDeviceType = (): DeviceType => {
-  const [width, setWidth] = useState(Breakpoints.sm + 1);
+const useDeviceType = (
+  defaultDeviceType: DeviceType = DeviceType.Mobile
+): DeviceType => {
+  const initialWidth =
+    defaultDeviceType == DeviceType.Desktop
+      ? Breakpoints.sm + 1
+      : Breakpoints.xs - 1;
+  const [width, setWidth] = useState(initialWidth);
 
   useEffect(() => {
     function handleResize() {
