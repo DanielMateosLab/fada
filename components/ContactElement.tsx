@@ -16,6 +16,7 @@ const ContactElement: React.FC<{ contact: Contact }> = ({ contact }) => {
           font-weight: bold;
         `}
       >
+        {contact.title && `${contact.title}: `}
         {contact.name}
       </span>
 

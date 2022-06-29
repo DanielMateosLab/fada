@@ -8,7 +8,9 @@ describe("ContactElement", () => {
     it("should show the contact name", () => {
       render(<ContactElement contact={contact} />);
 
-      expect(screen.getByText(contact.name)).toBeInTheDocument();
+      expect(
+        screen.getByText(contact.name, { exact: false })
+      ).toBeInTheDocument();
     });
 
     it("should show the contact email", () => {

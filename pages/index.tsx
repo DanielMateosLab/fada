@@ -8,10 +8,10 @@ import useDeviceType from "utils/useDeviceType";
 import SectionWithImage from "components/SectionWithImage";
 import fadaDesktop from "public/fada_desktop.jpg";
 import fadaMobile from "public/fada_mobile.jpg";
-import outrevertImage from "public/outrevert.jpg";
+import outrevertImage from "public/outrevert.png";
 import cacImage from "public/cac.jpg";
 import dancerImage from "public/dancer.jpg";
-import childrenImage from "public/children.jpg";
+import projectionImage from "public/projection.jpg";
 import microphoneImage from "public/microphone.jpg";
 import barImage from "public/bar.jpg";
 import restaurantImage from "public/restaurant.jpg";
@@ -41,7 +41,9 @@ const Home: NextPage = () => {
       <title>
         FADA - Film Autour de L&apos;Art | Outrevert. Châteauvert, Var.
       </title>
+
       <MainPoster poster={poster} />
+
       <SectionWithImage
         image={{
           dto: {
@@ -52,10 +54,11 @@ const Home: NextPage = () => {
           layout: deviceType == DeviceType.Mobile ? "responsive" : "fill",
           objectFit: "contain",
           css: css`
-            margin: 0 ${theme.paddingX[deviceType]};
             background: none;
             height: ${deviceType == DeviceType.Mobile ? "auto" : "250px"};
-            margin-top: ${deviceType == DeviceType.Mobile ? "2rem" : "0"};
+            margin: ${deviceType == DeviceType.Mobile
+              ? `2rem ${theme.paddingX[deviceType]} 1rem ${theme.paddingX[deviceType]}`
+              : `0 ${theme.paddingX[deviceType]}`};
           `,
         }}
         textContent={
@@ -66,70 +69,63 @@ const Home: NextPage = () => {
           </>
         }
       />
+
       <div
         css={css`
           position: relative;
-          height: 700px;
-          ${theme.mq.xs} {
-            height: ${theme.sectionHeight};
-          }
+          width: 100%;
+          height: 70vh;
         `}
       >
-        <div
-          css={css`
-            width: 100%;
-            height: 100%;
-            background: lightgray;
-            position: relative;
-          `}
-        >
-          <Image
-            src={cacImage}
-            alt="Centre d'art de Châteauvert"
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-
-        <div
-          css={css`
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-          `}
-        >
-          <Container>
-            <p
-              css={css`
-                color: white;
-                padding: 2rem;
-                background: rgba(0, 0, 0, 0.66);
-                backdrop-filter: blur(2px);
-                text-shadow: 0px 1px 2px black, 0px -1px 2px black;
-              `}
-            >
-              Avec une programmation abordant différents champs de l&apos;art
-              sous des formats et des formes cinématographiques variées, la 6ème
-              édition du FADA se propose d&apos;accroître la connaissance et
-              l&apos;appréciation de l&apos;art, également de faire reconnaître
-              le travail des artistes et des professionnels œuvrant dans le
-              domaine du cinéma, de la vidéo et de la télévision.
-            </p>
-          </Container>
-        </div>
+        <Image
+          src={cacImage}
+          alt="Centre d'art de Châteauvert"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="right"
+          placeholder="blur"
+        />
       </div>
-      <h2
+
+      <div
         css={css`
-          color: ${theme.color.typography};
+          padding: 2rem 0;
           text-align: center;
         `}
       >
-        Cette année à la FADA
-      </h2>
+        <h2
+          css={css`
+            color: ${theme.color.typography};
+            margin: 0;
+          `}
+        >
+          FADA 2022
+        </h2>
+        <h3
+          css={css`
+            font-size: 1.2rem;
+            margin: 0;
+          `}
+        >
+          22 au 24 juillet
+        </h3>
+      </div>
+
+      <Container>
+        <p
+          css={css`
+            margin: 0;
+            margin-bottom: 2rem;
+          `}
+        >
+          Avec une programmation abordant différents champs de l&apos;art sous
+          des formats et des formes cinématographiques variées, la 6ème édition
+          du FADA se propose d&apos;accroître la connaissance et
+          l&apos;appréciation de l&apos;art, également de faire reconnaître le
+          travail des artistes et des professionnels œuvrant dans le domaine du
+          cinéma, de la vidéo et de la télévision.
+        </p>
+      </Container>
 
       <SectionWithImage
         image={{
@@ -151,8 +147,8 @@ const Home: NextPage = () => {
       <SectionWithImage
         image={{
           dto: {
-            src: childrenImage,
-            alt: "des gamins",
+            src: projectionImage,
+            alt: "projection",
           },
           positon: "left",
         }}
@@ -168,7 +164,7 @@ const Home: NextPage = () => {
         image={{
           dto: {
             src: microphoneImage,
-            alt: "microphone",
+            alt: "réalisateur",
           },
           positon: "right",
         }}

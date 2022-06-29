@@ -130,12 +130,19 @@ export const contactInfo: Contact[] = [
   },
   {
     name: "Li Ragu",
+    title: "Présidente Outrevert",
     phone: "06 10 78 93 17",
     email: "liragu.liragu@gmail.com",
   },
   {
     name: "Anita Mizrahi",
+    title: "Contact presse",
     email: "a.studio@online.nl",
+  },
+  {
+    name: "Béatrice Pellegrino",
+    title: "Graphisme",
+    email: "bea-titude@orange.fr",
   },
   { name: "Charlotte Dugauquier", email: "charlottedugauquier@yahoo.fr" },
   { name: "Michel Loye", email: "loye.michel@free.fr" },
