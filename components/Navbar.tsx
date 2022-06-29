@@ -18,7 +18,7 @@ const Navbar = () => {
     },
     {
       href: "/program",
-      text: "Programme 6ème",
+      text: "Programme 2022",
     },
     {
       href: "/contact",
