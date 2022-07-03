@@ -17,5 +17,5 @@ type ResponsiveStyles = Dictionary<DeviceType, SerializedStyles>;
 
 export interface ResponsiveStyler {
   base?: SerializedStyles;
-  responsive: ResponsiveStyles;
+  responsive?: ResponsiveStyles;
 }
