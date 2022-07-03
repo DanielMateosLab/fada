@@ -3,6 +3,7 @@ import ContactElement from "components/ContactElement";
 import Container from "components/Container";
 import type { NextPage } from "next";
 import { contactInfo } from "utils/data";
+import { Contact } from "utils/types";
 
 const Contact: NextPage = () => {
   const theme = useTheme();
@@ -16,7 +17,7 @@ const Contact: NextPage = () => {
         css={css`
           display: flex;
           flex-direction: column-reverse;
-          gap: 0.5rem;
+          gap: 2rem;
           ${theme.mq.md} {
             display: grid;
             grid-template-columns: 2fr 3fr;
@@ -37,21 +38,37 @@ const Contact: NextPage = () => {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
-        <ul
-          css={[
-            theme.flatList,
-            css`
-              padding: 0;
-            `,
-          ]}
+        <div
+          css={css`
+            > :first-of-type {
+              margin-bottom: 2rem;
+            }
+          `}
         >
-          {contactInfo.map((contact) => (
-            <ContactElement contact={contact} key={contact.email} />
-          ))}
-        </ul>
+          <ContactInfoSection contacts={contactInfo.Outrevert} />
+          <ContactInfoSection contacts={contactInfo.Fada} />
+        </div>
       </div>
     </Container>
   );
 };
 
 export default Contact;
+
+const ContactInfoSection: React.FC<{ contacts: Contact[] }> = (props) => {
+  const theme = useTheme();
+  return (
+    <ul
+      css={[
+        theme.flatList,
+        css`
+          padding: 0;
+        `,
+      ]}
+    >
+      {props.contacts.map((contact) => (
+        <ContactElement contact={contact} key={contact.name} />
+      ))}
+    </ul>
+  );
+};

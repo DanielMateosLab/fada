@@ -1,3 +1,4 @@
+import { Dictionary } from "models/models.gen";
 import { Contact, Day } from "./types";
 
 export const programData: Day[] = [
@@ -122,28 +123,33 @@ export const programData: Day[] = [
   },
 ];
 
-export const contactInfo: Contact[] = [
-  {
-    name: "Outrevert, les amis du Centre d'Art de Châteauvert",
-    address: "Chemin du Petit Saint Estève 83670 Châteauvert",
-    email: "contactacac@gmail.com",
-  },
-  {
-    name: "Li Ragu",
-    title: "Présidente Outrevert",
-    phone: "06 10 78 93 17",
-    email: "liragu.liragu@gmail.com",
-  },
-  {
-    name: "Anita Mizrahi",
-    title: "Contact presse",
-    email: "a.studio@online.nl",
-  },
-  {
-    name: "Béatrice Pellegrino",
-    title: "Graphisme",
-    email: "bea-titude@orange.fr",
-  },
-  { name: "Charlotte Dugauquier", email: "charlottedugauquier@yahoo.fr" },
-  { name: "Michel Loye", email: "loye.michel@free.fr" },
-];
+enum ContactSections {
+  Outrevert = "Outrevert",
+  Fada = "Fada",
+}
+export const contactInfo: Dictionary<ContactSections, Contact[]> = {
+  [ContactSections.Outrevert]: [
+    {
+      name: "Outrevert, les amis du Centre d'Art de Châteauvert",
+      address: "Chemin du Petit Saint Estève 83670 Châteauvert",
+      email: ["contactacac@gmail.com", "festivalfada@gmail.com"],
+    },
+    {
+      name: "Li Ragu / Présidente",
+    },
+    { name: "Micheline Simon / Secrétaire" },
+    { name: "Claude Rauber / Trésorier" },
+  ],
+  [ContactSections.Fada]: [
+    {
+      name: "Anita Mizrahi / Contact presse",
+      email: "a.studio@online.nl",
+    },
+    {
+      name: "Béatrice Pellegrino / Graphisme",
+      email: "bea-titude@orange.fr",
+    },
+    { name: "Charlotte Dugauquier", email: "charlottedugauquier@yahoo.fr" },
+    { name: "Michel Loye", email: "loye.michel@free.fr" },
+  ],
+};
