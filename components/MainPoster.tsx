@@ -39,16 +39,21 @@ const MainPoster: React.FC = () => {
         }
       `}
     >
-      {deviceType && (
+      {
         <div
           css={css`
             width: 100%;
             height: 100%;
             position: relative;
+            visibility: ${deviceType ? "visible" : "hidden"};
           `}
         >
           <Image
-            src={MainPosterStyler[deviceType].src}
+            src={
+              deviceType
+                ? MainPosterStyler[deviceType].src
+                : MainPosterStyler[DeviceType.Mobile].src
+            }
             alt="FADA Affiche 2022"
             layout="fill"
             objectFit="contain"
@@ -57,7 +62,7 @@ const MainPoster: React.FC = () => {
             priority
           />
         </div>
-      )}
+      }
     </div>
   );
 };
