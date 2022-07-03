@@ -1,5 +1,15 @@
 import { Dictionary } from "models/models.gen";
+import { ImageDTO } from "models/models.image";
 import { Contact, Day } from "./types";
+import poster1 from "public/pastEditions/1.jpg";
+import poster2 from "public/pastEditions/2.jpg";
+import poster3 from "public/pastEditions/3.jpg";
+import poster4 from "public/pastEditions/4.jpg";
+import poster5 from "public/pastEditions/5.jpg";
+import program2 from "public/pastEditions/2_programme.jpg";
+import program3 from "public/pastEditions/3_programme.jpg";
+import program4 from "public/pastEditions/4_programme.jpg";
+import program5 from "public/pastEditions/5_programme.jpg";
 
 export const programData: Day[] = [
   {
@@ -153,3 +163,55 @@ export const contactInfo: Dictionary<ContactSections, Contact[]> = {
     { name: "Michel Loye", email: "loye.michel@free.fr" },
   ],
 };
+
+export const pastEditions: {
+  poster: ImageDTO;
+  programme?: ImageDTO;
+}[] = [
+  {
+    poster: {
+      src: poster1,
+      alt: "Affiche de l'édition 1 - 2015",
+    },
+  },
+  {
+    poster: {
+      src: poster2,
+      alt: "Affiche de l'édition 2 - 2016",
+    },
+    programme: {
+      src: program2,
+      alt: "Programme de l'édition 2 - 2016",
+    },
+  },
+  {
+    poster: {
+      src: poster3,
+      alt: "Affiche de l'édition 3 - 2017",
+    },
+    programme: {
+      src: program3,
+      alt: "Programme de l'édition 3 - 2017",
+    },
+  },
+  {
+    poster: {
+      src: poster4,
+      alt: "Affiche de l'édition 4 - 2018",
+    },
+    programme: {
+      src: program4,
+      alt: "Programme de l'édition 4 - 2018",
+    },
+  },
+  {
+    poster: {
+      src: poster5,
+      alt: "Affiche de l'édition 5 - 2021",
+    },
+    programme: {
+      src: program5,
+      alt: "Programme de l'édition 5 - 2021",
+    },
+  },
+];
