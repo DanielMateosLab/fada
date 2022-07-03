@@ -3,7 +3,7 @@ import { Breakpoints, DeviceType } from "models/models.theme";
 
 const mq = (bp: Breakpoints) => `@media (min-width: ${bp}px)`;
 
-const paddingX: { [key in DeviceType]: string } = {
+const responsiveSpacing: { [key in DeviceType]: string } = {
   [DeviceType.Mobile]: "1rem",
   [DeviceType.Desktop]: "calc(100vw * 1/12)",
 };
@@ -26,7 +26,15 @@ export const theme = {
     padding: 0;
   `,
   sectionHeight: "500px",
-  paddingX,
+  paddingX: css`
+    padding-left: ${responsiveSpacing[DeviceType.Mobile]};
+    padding-right: ${responsiveSpacing[DeviceType.Mobile]};
+    ${mq(Breakpoints.xs)} {
+      padding-left: ${responsiveSpacing[DeviceType.Desktop]};
+      padding-right: ${responsiveSpacing[DeviceType.Desktop]};
+    }
+  `,
+  responsiveSpacing,
 };
 
 export type AppTheme = typeof theme;

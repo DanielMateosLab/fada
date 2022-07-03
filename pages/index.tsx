@@ -2,12 +2,9 @@ import { css, useTheme } from "@emotion/react";
 import AppLink from "components/AppLink";
 import type { NextPage } from "next";
 import Image from "next/image";
-import { CurrentEditionPoster } from "models/models.image";
 import { DeviceType } from "models/models.theme";
 import useDeviceType from "utils/useDeviceType";
 import SectionWithImage from "components/SectionWithImage";
-import fadaDesktop from "public/fada_desktop.jpg";
-import fadaMobile from "public/fada_mobile.jpg";
 import outrevertImage from "public/outrevert.png";
 import cacImage from "public/cac.jpg";
 import dancerImage from "public/dancer.jpg";
@@ -19,16 +16,6 @@ import Container from "components/Container";
 import MainPoster from "components/MainPoster";
 
 const Home: NextPage = () => {
-  const poster: CurrentEditionPoster = {
-    [DeviceType.Desktop]: {
-      src: fadaDesktop,
-      alt: "FADA Affiche 2022",
-    },
-    [DeviceType.Mobile]: {
-      src: fadaMobile,
-      alt: "FADA Affiche 2022",
-    },
-  };
   const theme = useTheme();
   const deviceType = useDeviceType();
 
@@ -42,7 +29,7 @@ const Home: NextPage = () => {
         FADA - Film Autour de L&apos;Art | Outrevert. Châteauvert, Var.
       </title>
 
-      <MainPoster poster={poster} />
+      <MainPoster />
 
       <SectionWithImage
         image={{
@@ -55,10 +42,12 @@ const Home: NextPage = () => {
           objectFit: "contain",
           css: css`
             background: none;
-            height: ${deviceType == DeviceType.Mobile ? "auto" : "250px"};
-            margin: ${deviceType == DeviceType.Mobile
-              ? `2rem ${theme.paddingX[deviceType]} 1rem ${theme.paddingX[deviceType]}`
-              : `0 ${theme.paddingX[deviceType]}`};
+            height: auto;
+            margin: 2rem ${theme.responsiveSpacing[DeviceType.Mobile]} 1rem
+              ${theme.responsiveSpacing[DeviceType.Mobile]};
+            ${theme.mq.xs} {
+              margin: 0 ${theme.responsiveSpacing[DeviceType.Desktop]};
+            }
           `,
         }}
         textContent={

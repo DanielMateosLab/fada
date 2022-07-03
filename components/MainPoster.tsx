@@ -1,35 +1,63 @@
 import { css, useTheme } from "@emotion/react";
-import { CurrentEditionPoster } from "models/models.image";
+import { Dictionary } from "models/models.gen";
 import { DeviceType } from "models/models.theme";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import useDeviceType from "utils/useDeviceType";
+import fadaDesktop from "public/fada_desktop.jpg";
+import fadaMobile from "public/fada_mobile.jpg";
 
-interface MainPosterProps {
-  poster: CurrentEditionPoster;
+interface MainPosterProperties {
+  src: StaticImageData;
+  heightK: number;
 }
 
-const MainPoster: React.FC<MainPosterProps> = (props) => {
-  const deviceType = useDeviceType(DeviceType.Mobile);
+const MainPosterStyler: Dictionary<DeviceType, MainPosterProperties> = {
+  [DeviceType.Mobile]: {
+    src: fadaMobile,
+    heightK: 1.5,
+  },
+  [DeviceType.Desktop]: {
+    src: fadaDesktop,
+    heightK: 0.48899468709031946,
+  },
+};
+
+const MainPoster: React.FC = () => {
+  const deviceType = useDeviceType();
   const theme = useTheme();
 
   return (
     <div
       css={css`
-        width: 100%;
+        max-width: 100%;
+        width: 100vw;
+        height: calc(100vw * ${MainPosterStyler.Mobile.heightK});
         background: ${theme.color.background};
         ${theme.mq.xs} {
-          padding-left: ${theme.paddingX[deviceType]};
+          height: calc(100vw * ${MainPosterStyler.Desktop.heightK});
+          padding-left: ${theme.responsiveSpacing.Desktop};
         }
       `}
     >
-      <Image
-        src={props.poster[deviceType].src}
-        alt={props.poster[deviceType].alt}
-        layout="responsive"
-        objectFit="cover"
-        placeholder="blur"
-        priority
-      />
+      {deviceType && (
+        <div
+          css={css`
+            width: 100%;
+            height: 100%;
+            position: relative;
+          `}
+        >
+          <Image
+            src={MainPosterStyler[deviceType].src}
+            alt="FADA Affiche 2022"
+            layout="fill"
+            objectFit="contain"
+            objectPosition="bottom"
+            placeholder="blur"
+            priority
+          />
+        </div>
+      )}
     </div>
   );
 };

@@ -85,7 +85,7 @@ const Navbar = () => {
         overflow: hidden;
       `}
     >
-      <MainMenu>{MainMenuConfiguration[deviceType]}</MainMenu>
+      <MainMenu>{deviceType && MainMenuConfiguration[deviceType]}</MainMenu>
       <SecondaryMenu />
     </nav>
   );

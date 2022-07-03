@@ -1,22 +1,19 @@
 import { Breakpoints, DeviceType } from "models/models.theme";
 import { useEffect, useState } from "react";
 
-const useDeviceType = (
-  defaultDeviceType: DeviceType = DeviceType.Mobile
-): DeviceType => {
-  const initialWidth =
-    defaultDeviceType == DeviceType.Desktop
-      ? Breakpoints.sm + 1
-      : Breakpoints.xs - 1;
-  const [width, setWidth] = useState(initialWidth);
+const useDeviceType = () => {
+  const [deviceType, setDeviceType] = useState<DeviceType | null>(null);
 
   useEffect(() => {
     function handleResize() {
-      setWidth(window.innerWidth);
+      setDeviceType(
+        window.innerWidth > Breakpoints.xs
+          ? DeviceType.Desktop
+          : DeviceType.Mobile
+      );
     }
 
     window.addEventListener("resize", handleResize);
-
     handleResize();
 
     return () => {
@@ -24,7 +21,7 @@ const useDeviceType = (
     };
   }, []);
 
-  return width > Breakpoints.xs ? DeviceType.Desktop : DeviceType.Mobile;
+  return deviceType;
 };
 
 export default useDeviceType;
