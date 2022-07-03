@@ -7,6 +7,7 @@ interface DarkButtonProps {
 
 const DarkButton: React.FC<DarkButtonProps> = (props) => (
   <button
+    tabIndex={-1}
     css={css`
       padding: 0.5rem 1rem;
       background: rgba(0, 0, 0, 0.9);

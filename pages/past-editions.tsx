@@ -1,5 +1,6 @@
 import { css, useTheme } from "@emotion/react";
 import Container from "components/Container";
+import DarkButton from "components/DarkButton";
 import { ImageDTO } from "models/models.image";
 import type { NextPage } from "next";
 import Image from "next/image";
@@ -37,20 +38,42 @@ const PastEditions: NextPage = () => {
   const PastEditionsManager = () =>
     pastEditions.map((edition) => (
       <div
+        tabIndex={0}
         key={edition.alt}
         css={css`
+          outline: 0;
           position: relative;
-          width: 100%;
-          height: 100%;
-          background: ${theme.color.gray};
+          ${theme.mq.xs} {
+            & button {
+              display: none;
+            }
+            &:hover button,
+            &:active button,
+            &:focus button {
+              display: block;
+            }
+          }
         `}
       >
         <Image
           layout="responsive"
           src={edition.src}
           alt={edition.alt}
+          objectFit="contain"
           placeholder="blur"
         />
+        <div
+          css={css`
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 0.5rem;
+            display: grid;
+            place-items: center;
+          `}
+        >
+          <DarkButton text="Voir programme" handleClick={() => {}} />
+        </div>
       </div>
     ));
 
