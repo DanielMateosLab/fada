@@ -3,6 +3,7 @@ import { ImageDTO } from "models/models.image";
 import Image from "next/image";
 import { useEffect } from "react";
 import ClientOnlyPortal from "./ClientOnlyPortal";
+import CloseButton from "./CloseButton";
 
 interface ProgramModalProps {
   program: ImageDTO | null;
@@ -30,6 +31,7 @@ const ProgramModal: React.FC<ProgramModalProps> = (props) => {
             overflow-y: scroll;
           `}
         >
+          <CloseButton handleClose={props.handleClose} />
           <div
             css={css`
               width: 60%;
