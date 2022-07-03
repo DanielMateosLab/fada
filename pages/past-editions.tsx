@@ -1,12 +1,16 @@
 import { css, useTheme } from "@emotion/react";
 import Container from "components/Container";
 import DarkButton from "components/DarkButton";
+import ProgramModal from "components/ProgramModal";
+import { ImageDTO } from "models/models.image";
 import type { NextPage } from "next";
 import Image from "next/image";
+import { useState } from "react";
 import { pastEditions } from "utils/data";
 
 const PastEditions: NextPage = () => {
   const theme = useTheme();
+  const [selectedProgram, setSelectedProgram] = useState<ImageDTO | null>(null);
 
   const PastEditionsManager = () =>
     pastEditions.map((edition) => (
@@ -46,29 +50,39 @@ const PastEditions: NextPage = () => {
               place-items: center;
             `}
           >
-            <DarkButton text="Voir programme" handleClick={() => {}} />
+            <DarkButton
+              text="Voir programme"
+              handleClick={() => setSelectedProgram(edition.programme || null)}
+            />
           </div>
         )}
       </div>
     ));
 
   return (
-    <Container marginBottom>
-      <title>Éditions Passées</title>
+    <>
+      <Container marginBottom>
+        <title>Éditions Passées</title>
 
-      <h1>Éditions Passées</h1>
+        <h1>Éditions Passées</h1>
 
-      <div
-        css={css`
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-gap: 1rem;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        `}
-      >
-        {PastEditionsManager()}
-      </div>
-    </Container>
+        <div
+          css={css`
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          `}
+        >
+          {PastEditionsManager()}
+        </div>
+      </Container>
+
+      <ProgramModal
+        program={selectedProgram}
+        handleClose={() => setSelectedProgram(null)}
+      />
+    </>
   );
 };
 
