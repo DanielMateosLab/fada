@@ -36,7 +36,6 @@ const PastEditions: NextPage = () => {
           layout="responsive"
           src={edition.poster.src}
           alt={edition.poster.alt}
-          objectFit="contain"
           placeholder="blur"
         />
         {edition.programme && (

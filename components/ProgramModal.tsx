@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css, useTheme } from "@emotion/react";
 import { ImageDTO } from "models/models.image";
 import Image from "next/image";
 import { useEffect } from "react";
@@ -10,6 +10,8 @@ interface ProgramModalProps {
   handleClose: () => void;
 }
 const ProgramModal: React.FC<ProgramModalProps> = (props) => {
+  const theme = useTheme();
+
   useEffect(() => {
     document.body.style.overflow = props.program ? "hidden" : "auto";
 
@@ -29,19 +31,38 @@ const ProgramModal: React.FC<ProgramModalProps> = (props) => {
             background: rgba(0, 0, 0, 0.7);
             z-index: 2;
             overflow-y: scroll;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            ${theme.mq.xs} {
+              align-items: flex-start;
+            }
           `}
+          onClick={props.handleClose}
         >
-          <CloseButton handleClose={props.handleClose} />
           <div
             css={css`
-              width: 60%;
-              margin: auto;
+              position: fixed;
+              top: 0;
+              right: 0;
+              ${theme.mq.xs} {
+                top: 2rem;
+                right: 2rem;
+              }
             `}
+          >
+            <CloseButton handleClose={props.handleClose} />
+          </div>
+
+          <div
+            css={css`
+              max-width: calc(100% - ${theme.responsiveSpacing.Desktop} * 2);
+            `}
+            onClick={(event) => event.stopPropagation()}
           >
             <Image
               src={props.program.src}
               alt={props.program.alt}
-              layout="responsive"
               objectFit="contain"
               placeholder="blur"
             />
