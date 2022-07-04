@@ -11,7 +11,9 @@ const AppLink: React.FC<Props> = ({ children, ...props }) => {
   return (
     <a
       css={css`
+        width: min-content;
         text-decoration-line: none;
+        white-space: nowrap;
         color: ${theme.color.typography};
         &:hover,
         &:focus,

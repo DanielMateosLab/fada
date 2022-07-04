@@ -1,4 +1,15 @@
+import { Dictionary } from "models/models.gen";
+import { ImageDTO } from "models/models.image";
 import { Contact, Day } from "./types";
+import poster1 from "public/pastEditions/1.jpg";
+import poster2 from "public/pastEditions/2.jpg";
+import poster3 from "public/pastEditions/3.jpg";
+import poster4 from "public/pastEditions/4.jpg";
+import poster5 from "public/pastEditions/5.jpg";
+import program2 from "public/pastEditions/2_programme.jpg";
+import program3 from "public/pastEditions/3_programme.jpg";
+import program4 from "public/pastEditions/4_programme.jpg";
+import program5 from "public/pastEditions/5_programme.jpg";
 
 export const programData: Day[] = [
   {
@@ -122,28 +133,85 @@ export const programData: Day[] = [
   },
 ];
 
-export const contactInfo: Contact[] = [
+enum ContactSections {
+  Outrevert = "Outrevert",
+  Fada = "Fada",
+}
+export const contactInfo: Dictionary<ContactSections, Contact[]> = {
+  [ContactSections.Outrevert]: [
+    {
+      name: "Outrevert, les amis du Centre d'Art de Châteauvert",
+      address: "Chemin du Petit Saint Estève 83670 Châteauvert",
+      email: ["contactacac@gmail.com", "festivalfada@gmail.com"],
+    },
+    {
+      name: "Li Ragu / Présidente",
+    },
+    { name: "Micheline Simon / Secrétaire" },
+    { name: "Claude Rauber / Trésorier" },
+  ],
+  [ContactSections.Fada]: [
+    {
+      name: "Anita Mizrahi / Contact presse",
+      email: "a.studio@online.nl",
+    },
+    {
+      name: "Béatrice Pellegrino / Graphisme",
+      email: "bea-titude@orange.fr",
+    },
+    { name: "Charlotte Dugauquier", email: "charlottedugauquier@yahoo.fr" },
+    { name: "Michel Loye", email: "loye.michel@free.fr" },
+  ],
+};
+
+export const pastEditions: {
+  poster: ImageDTO;
+  programme?: ImageDTO;
+}[] = [
   {
-    name: "Outrevert, les amis du Centre d'Art de Châteauvert",
-    address: "Chemin du Petit Saint Estève 83670 Châteauvert",
-    email: "contactacac@gmail.com",
+    poster: {
+      src: poster1,
+      alt: "Affiche de l'édition 1 - 2015",
+    },
   },
   {
-    name: "Li Ragu",
-    title: "Présidente Outrevert",
-    phone: "06 10 78 93 17",
-    email: "liragu.liragu@gmail.com",
+    poster: {
+      src: poster2,
+      alt: "Affiche de l'édition 2 - 2016",
+    },
+    programme: {
+      src: program2,
+      alt: "Programme de l'édition 2 - 2016",
+    },
   },
   {
-    name: "Anita Mizrahi",
-    title: "Contact presse",
-    email: "a.studio@online.nl",
+    poster: {
+      src: poster3,
+      alt: "Affiche de l'édition 3 - 2017",
+    },
+    programme: {
+      src: program3,
+      alt: "Programme de l'édition 3 - 2017",
+    },
   },
   {
-    name: "Béatrice Pellegrino",
-    title: "Graphisme",
-    email: "bea-titude@orange.fr",
+    poster: {
+      src: poster4,
+      alt: "Affiche de l'édition 4 - 2018",
+    },
+    programme: {
+      src: program4,
+      alt: "Programme de l'édition 4 - 2018",
+    },
   },
-  { name: "Charlotte Dugauquier", email: "charlottedugauquier@yahoo.fr" },
-  { name: "Michel Loye", email: "loye.michel@free.fr" },
+  {
+    poster: {
+      src: poster5,
+      alt: "Affiche de l'édition 5 - 2021",
+    },
+    programme: {
+      src: program5,
+      alt: "Programme de l'édition 5 - 2021",
+    },
+  },
 ];

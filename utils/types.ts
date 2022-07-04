@@ -12,8 +12,7 @@ export interface Day {
 
 export interface Contact {
   name: string;
-  title?: string;
   address?: string;
   phone?: string;
-  email: string;
+  email?: string | string[];
 }

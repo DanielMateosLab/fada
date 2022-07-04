@@ -1,14 +1,25 @@
-import { css, useTheme } from "@emotion/react";
+import { css } from "@emotion/react";
 import { Contact } from "utils/types";
 import AppLink from "./AppLink";
 
 const ContactElement: React.FC<{ contact: Contact }> = ({ contact }) => {
+  const EmailMapper = () =>
+    Array.isArray(contact.email) ? (
+      contact.email.map((email, i) => (
+        <AppLink key={i + email} href={`mailto:${email}`}>
+          {email}
+        </AppLink>
+      ))
+    ) : (
+      <AppLink href={`mailto:${contact.email}`}>{contact.email}</AppLink>
+    );
+
   return (
     <li
       css={css`
         display: flex;
         flex-direction: column;
-        margin-bottom: 1rem;
+        margin-bottom: 0.25rem;
       `}
     >
       <span
@@ -16,7 +27,6 @@ const ContactElement: React.FC<{ contact: Contact }> = ({ contact }) => {
           font-weight: bold;
         `}
       >
-        {contact.title && `${contact.title}: `}
         {contact.name}
       </span>
 
@@ -30,8 +40,13 @@ const ContactElement: React.FC<{ contact: Contact }> = ({ contact }) => {
         </address>
       )}
 
-      <div>
-        <AppLink href={`mailto:${contact.email}`}>{contact.email}</AppLink>
+      <div
+        css={css`
+          display: flex;
+          flex-direction: column;
+        `}
+      >
+        {EmailMapper()}
       </div>
 
       {contact.phone && (

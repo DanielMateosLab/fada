@@ -1,76 +1,87 @@
 import { css, useTheme } from "@emotion/react";
 import Container from "components/Container";
+import DarkButton from "components/DarkButton";
+import ProgramModal from "components/ProgramModal";
 import { ImageDTO } from "models/models.image";
 import type { NextPage } from "next";
 import Image from "next/image";
-import poster1 from "public/pastEditions/1.jpg";
-import poster2 from "public/pastEditions/2.jpg";
-import poster3 from "public/pastEditions/3.jpg";
-import poster4 from "public/pastEditions/4.jpg";
-import poster5 from "public/pastEditions/5.jpg";
+import { useState } from "react";
+import { pastEditions } from "utils/data";
 
 const PastEditions: NextPage = () => {
   const theme = useTheme();
-  const pastEditions: ImageDTO[] = [
-    {
-      src: poster1,
-      alt: "Affiche de l'édition 1 - 2015",
-    },
-    {
-      src: poster2,
-      alt: "Affiche de l'édition 2 - 2016",
-    },
-    {
-      src: poster3,
-      alt: "Affiche de l'édition 3 - 2017",
-    },
-    {
-      src: poster4,
-      alt: "Affiche de l'édition 4 - 2018",
-    },
-    {
-      src: poster5,
-      alt: "Affiche de l'édition 5 - 2021",
-    },
-  ];
+  const [selectedProgram, setSelectedProgram] = useState<ImageDTO | null>(null);
 
   const PastEditionsManager = () =>
     pastEditions.map((edition) => (
       <div
-        key={edition.alt}
+        tabIndex={0}
+        key={edition.poster.alt}
         css={css`
+          outline: 0;
           position: relative;
-          width: 100%;
-          height: 100%;
-          background: ${theme.color.gray};
+          ${theme.mq.xs} {
+            & button {
+              display: none;
+            }
+            &:hover button,
+            &:active button,
+            &:focus button {
+              display: block;
+            }
+          }
         `}
       >
         <Image
           layout="responsive"
-          src={edition.src}
-          alt={edition.alt}
+          src={edition.poster.src}
+          alt={edition.poster.alt}
           placeholder="blur"
         />
+        {edition.programme && (
+          <div
+            css={css`
+              position: absolute;
+              width: 100%;
+              left: 0;
+              bottom: 0.5rem;
+              display: grid;
+              place-items: center;
+            `}
+          >
+            <DarkButton
+              text="Voir programme"
+              handleClick={() => setSelectedProgram(edition.programme || null)}
+            />
+          </div>
+        )}
       </div>
     ));
 
   return (
-    <Container marginBottom>
-      <title>Éditions Passées</title>
+    <>
+      <Container marginBottom>
+        <title>Éditions Passées</title>
 
-      <h1>Éditions Passées</h1>
+        <h1>Éditions Passées</h1>
 
-      <div
-        css={css`
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-gap: 1rem;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        `}
-      >
-        {PastEditionsManager()}
-      </div>
-    </Container>
+        <div
+          css={css`
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          `}
+        >
+          {PastEditionsManager()}
+        </div>
+      </Container>
+
+      <ProgramModal
+        program={selectedProgram}
+        handleClose={() => setSelectedProgram(null)}
+      />
+    </>
   );
 };
 
