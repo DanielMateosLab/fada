@@ -1,12 +1,14 @@
-import { css, useTheme } from "@emotion/react";
+import { css } from "@emotion/react";
 import { Contact } from "utils/types";
 import AppLink from "./AppLink";
 
 const ContactElement: React.FC<{ contact: Contact }> = ({ contact }) => {
   const EmailMapper = () =>
     Array.isArray(contact.email) ? (
-      contact.email.map((email) => (
-        <AppLink href={`mailto:${email}`}>{email}</AppLink>
+      contact.email.map((email, i) => (
+        <AppLink key={i + email} href={`mailto:${email}`}>
+          {email}
+        </AppLink>
       ))
     ) : (
       <AppLink href={`mailto:${contact.email}`}>{contact.email}</AppLink>
