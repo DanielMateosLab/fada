@@ -4,6 +4,7 @@ import DarkButton from "components/DarkButton";
 import ProgramModal from "components/ProgramModal";
 import { ImageDTO } from "models/models.image";
 import type { NextPage } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import { pastEditions } from "utils/data";
@@ -61,7 +62,9 @@ const PastEditions: NextPage = () => {
   return (
     <>
       <Container marginBottom>
-        <title>Éditions Passées</title>
+        <Head>
+          <title>Éditions Passées - FADA</title>
+        </Head>
 
         <h1>Éditions Passées</h1>
 

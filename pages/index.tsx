@@ -14,6 +14,7 @@ import barImage from "public/bar.jpg";
 import restaurantImage from "public/restaurant.jpg";
 import Container from "components/Container";
 import MainPoster from "components/MainPoster";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   const theme = useTheme();
@@ -25,9 +26,11 @@ const Home: NextPage = () => {
         font-size: 1.2rem;
       `}
     >
-      <title>
-        FADA - Film Autour de L&apos;Art | Outrevert. Châteauvert, Var.
-      </title>
+      <Head>
+        <title>
+          FADA - Film Autour de L&apos;Art | Outrevert. Châteauvert, Var.
+        </title>
+      </Head>
 
       <MainPoster />
 

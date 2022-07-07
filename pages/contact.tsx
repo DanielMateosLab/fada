@@ -2,6 +2,7 @@ import { css, useTheme } from "@emotion/react";
 import ContactElement from "components/ContactElement";
 import Container from "components/Container";
 import type { NextPage } from "next";
+import Head from "next/head";
 import { contactInfo } from "utils/data";
 import { Contact } from "utils/types";
 
@@ -10,7 +11,9 @@ const Contact: NextPage = () => {
 
   return (
     <Container marginBottom>
-      <title>Accés et Contact - FADA | Outrevert. Châteauvert, Var.</title>
+      <Head>
+        <title>Accés et Contact - FADA</title>
+      </Head>
 
       <h1>Contact</h1>
       <div

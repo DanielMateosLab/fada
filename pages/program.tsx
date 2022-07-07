@@ -2,6 +2,7 @@ import { useTheme } from "@emotion/react";
 import Container from "components/Container";
 import EventElement from "components/EventElement";
 import type { NextPage } from "next";
+import Head from "next/head";
 import { programData } from "utils/data";
 
 const Program: NextPage = () => {
@@ -9,9 +10,9 @@ const Program: NextPage = () => {
 
   return (
     <Container marginBottom>
-      <title>
-        Programme 6<sup>eme</sup> Édition FADA | Juillet 2022
-      </title>
+      <Head>
+        <title>Programme 2022 - FADA</title>
+      </Head>
 
       <h1>Programme 2022</h1>
 
