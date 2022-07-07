@@ -71,7 +71,7 @@ const PastEditions: NextPage = () => {
           `}
         >
           Pour accéder aux programmes des années passées, cliquez en bas des
-          affiches (L'année 2015 ne comporte pas de programme).
+          affiches. (L&apos;année 2015 ne comporte pas de programme).
         </p>
 
         <div
