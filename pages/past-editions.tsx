@@ -65,6 +65,15 @@ const PastEditions: NextPage = () => {
 
         <h1>Éditions Passées</h1>
 
+        <p
+          css={css`
+            font-style: italic;
+          `}
+        >
+          Pour accéder aux programmes des années passées, cliquez en bas des
+          affiches (L'année 2015 ne comporte pas de programme).
+        </p>
+
         <div
           css={css`
             display: grid;
