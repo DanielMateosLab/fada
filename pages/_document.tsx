@@ -25,7 +25,7 @@ export default function Document() {
         />
         <meta
           name="keywords"
-          content="FADA, Film Autour de L'Art, Outrevert, Châteauvert, Var, 2022, 6eme, festival,
+          content="FADA, Film Autour de L'Art, Outrevert, Châteauvert, Var, fada var, 2022, 6eme, festival,
             musique, arts plastiques, danse, littérature, poésie, historie de l'art, photographie"
         />
       </Head>
