@@ -4,7 +4,7 @@ import { Contact, Day } from "./types";
 import poster1 from "public/pastEditions/1.jpg";
 import poster2 from "public/pastEditions/2.jpg";
 import poster3 from "public/pastEditions/3.jpg";
-import poster4 from "public/pastEditions/4.jpg";
+import poster4 from "public/pastEditions/4.png";
 import poster5 from "public/pastEditions/5.jpg";
 import program2 from "public/pastEditions/2_programme.jpg";
 import program3 from "public/pastEditions/3_programme.jpg";
