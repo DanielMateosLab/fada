@@ -5,19 +5,15 @@ const useDeviceType = () => {
   const [deviceType, setDeviceType] = useState<DeviceType | null>(null);
 
   useEffect(() => {
-    function handleResize() {
-      setDeviceType(
-        window.innerWidth > Breakpoints.xs
-          ? DeviceType.Desktop
-          : DeviceType.Mobile
-      );
-    }
+    const xsMediaQuery = window.matchMedia(`(min-width: ${Breakpoints.xs}px)`);
+    const handleMediaChange = (e: MediaQueryListEvent | MediaQueryList) =>
+      setDeviceType(e.matches ? DeviceType.Desktop : DeviceType.Mobile);
+    xsMediaQuery.addEventListener("change", handleMediaChange);
 
-    window.addEventListener("resize", handleResize);
-    handleResize();
+    handleMediaChange(xsMediaQuery);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      xsMediaQuery.removeEventListener("change", handleMediaChange);
     };
   }, []);
 
