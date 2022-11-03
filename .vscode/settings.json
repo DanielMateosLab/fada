@@ -1,3 +1,8 @@
 {
-  "cSpell.language": "en,fr"
+  "cSpell.language": "en,fr",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#063338",
+    "titleBar.activeBackground": "#08474F",
+    "titleBar.activeForeground": "#F2FDFE"
+  }
 }
