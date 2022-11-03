@@ -71,7 +71,7 @@ const Navbar = () => {
     ) : null;
 
   useEffect(() => {
-    menuOpen && setMenuOpen(false);
+    setMenuOpen(false);
   }, [router.pathname]);
 
   return (

@@ -48,19 +48,17 @@ const MainPoster: React.FC = () => {
             visibility: ${deviceType ? "visible" : "hidden"};
           `}
         >
-          <Image
-            src={
-              deviceType
-                ? MainPosterStyler[deviceType].src
-                : MainPosterStyler[DeviceType.Mobile].src
-            }
-            alt="FADA Affiche 2022"
-            layout="fill"
-            objectFit="contain"
-            objectPosition="bottom"
-            placeholder="blur"
-            priority
-          />
+          {deviceType && (
+            <Image
+              src={MainPosterStyler[deviceType].src}
+              alt="FADA Affiche 2022"
+              layout="fill"
+              objectFit="contain"
+              objectPosition="bottom"
+              placeholder="blur"
+              priority
+            />
+          )}
         </div>
       }
     </div>
